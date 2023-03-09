@@ -44,7 +44,11 @@
 * リフレッシュするための趣味としてペン字を始めたいとき…飲み物を淹れて好きな音楽を流し、心穏やかにペン字の時間を楽しんでいただくのもおすすめです。
 
 ## 設計書
-<...>
+* テーブル定義書:https://docs.google.com/spreadsheets/d/1D6HIyk5tztyT3pcAxVyyVO3U6kKWPRT-1ut_xuk8hlc/edit?usp=sharing
+* 詳細設計書:https://docs.google.com/spreadsheets/d/1sg9oUjEZEJUw0rF7OjlTS68dBn0VnGx8iwavduWF7_M/edit?usp=sharing
+* ER図：https://drive.google.com/file/d/1FsJrTCmzUOfyihmKWGUym9Vv7Jo0lqSh/view?usp=sharing
+* 画面遷移図(管理者側)：https://drive.google.com/file/d/1-JgehxZ6WsO_k9MPbYmVSsW4QTapJ_Cv/view?usp=sharing
+* 画面遷移図(ユーザー側):https://drive.google.com/file/d/1RtSQgenVI7Wcfy83a3Ui14VMkyfG9IRn/view?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
