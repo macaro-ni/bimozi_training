@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
   
+  
+  namespace :admin do
+    get 'samples' => 'samples#show'
+    resources :letters, only: [:index,:edit,:create,:update,:destroy]
+  end
+  
+  namespace :public do
+    get root to: "homes#top"
+    get 'about' => 'homes#about', as: :about
+    get 'samples'=> 'samples#show'
+    resources :favoriites, only: [:index,:create,:destroy]
+    resources :practices, only: [:show,:index,:create,:destroy]
+    resources :users, only: [:show,:edit,:update]
+  end
+  
+  
   # ユーザー用
   # URL /customers/sign_in ...
   devise_for :users, controllers: {
