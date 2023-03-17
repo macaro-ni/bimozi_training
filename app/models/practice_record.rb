@@ -1,0 +1,2 @@
+class PracticeRecord < ApplicationRecord
+end
