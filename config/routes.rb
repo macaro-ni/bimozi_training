@@ -11,10 +11,19 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about', as: :about
     #samples
     get 'samples'=> 'samples#show'
+    #users
+    get 'users/my_page' => 'users#show'
+    get 'users/information_edit' => 'users#edit'
+    patch '/users/information' => 'users#update'
+    get 'users/unsubscribe' => 'users#confirm'
+    patch '/users/withdraw' => 'users#withdrawal'
+
     #その他
     resources :favorites, only: [:index,:create,:destroy]
     resources :practices, only: [:show,:index,:create,:destroy]
-    resources :users, only: [:show,:edit,:update]
+    #resources :users, only: [:show,:edit,:update]
+
+
   end
 
 
