@@ -5,11 +5,14 @@ Rails.application.routes.draw do
     resources :letters, only: [:index,:edit,:create,:update,:destroy]
   end
 
-  namespace :public do
+  scope module: 'public' do
+    #homes
     get root to: "homes#top"
     get 'about' => 'homes#about', as: :about
+    #samples
     get 'samples'=> 'samples#show'
-    resources :favoriites, only: [:index,:create,:destroy]
+    #その他
+    resources :favorites, only: [:index,:create,:destroy]
     resources :practices, only: [:show,:index,:create,:destroy]
     resources :users, only: [:show,:edit,:update]
   end
@@ -31,3 +34,4 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+
