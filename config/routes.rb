@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   # ユーザー用
   # URL /customers/sign_in ...
-  devise_for :customers, controllers: {
+  devise_for :users, controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions',
     passwords: "public/passwords"
