@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   namespace :admin do
     get 'samples' => 'samples#show'
     resources :letters, only: [:index,:edit,:create,:update,:destroy]
@@ -34,6 +35,11 @@ Rails.application.routes.draw do
     sessions: 'public/sessions',
     passwords: "public/passwords"
   }
+
+  #ゲストログインのため追加
+  devise_scope :users do
+    post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end
 
   # 管理者用
   # URL /admin/sign_in ...
