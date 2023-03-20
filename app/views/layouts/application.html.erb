@@ -10,25 +10,62 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
-    <% if user_signed_in? %>
-      <li><%= link_to "マイページ",users_my_page_path %></li>
-      <li><%= link_to "お手本を選ぶ", samples_path %></li>
-      <li><%= link_to "お気に入り",favorites_path %> </li>
-      <li><%= link_to "練習の記録", practices_path %></li>
-      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-      <li><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %></li>
-    <% end %>
-  </header>
-  </body>
-    <%= yield %>
+
+  <body class="d-flex flex-column vh-100">
+
+      <header class="shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container">
+            <!--<a class="navbar-brand p-3" href="/">< %= image_tag('logo.jpg' , size: '120x90') %></a>-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
+
+                <% if user_signed_in? %>
+                  <li><%= link_to "マイページ",users_my_page_path %></li>
+                  <li><%= link_to "お手本を選ぶ", samples_path %></li>
+                  <li><%= link_to "お気に入り",favorites_path %> </li>
+                  <li><%= link_to "練習の記録", practices_path %></li>
+                  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                <% else %>
+                  <li>
+                    <%= link_to "新規登録", new_user_registration_path %>
+                  </li>
+                  <li>
+                    <%= link_to "ログイン", new_user_session_path %>
+                  </li>
+                  <li><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %></li>
+                <% end %>
+                 </ul>
+                </div>
+              </div>
+            </nav>
+          </header>
+
+          <main class="mb-auto">
+            <div class="container">
+
+
+                <%= yield %>
+
+            </div>
+          </main>
+
+          <footer class="bg-dark text-white pt-5 pb-4">
+            <div class="container">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-8">
+
+                </div>
+              </div>
+            </div>
+          </footer>
+
   </body>
 </html>

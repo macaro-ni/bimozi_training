@@ -1,2 +1,88 @@
-<h1>Public::Practices#show</h1>
-<p>Find me in app/views/public/practices/show.html.erb</p>
+<h1>文字練習</h1>
+
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スタイラスペン習字練習帳</title>
+</head>
+<style>
+  #canvas-container {
+    width: 100%;
+    height: 100%;
+  }
+  #controller {
+    text-align: center;
+    margin-bottom: 0;
+  }
+  #reload {
+    margin-left: 20px;
+  }
+  #otehon_selecter {
+    margin-left: 20px;
+  }
+</style>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.2.0/fabric.min.js"></script>
+  <p id="controller">
+    <button id="delete">クリア</button>
+    <select id="otehon_selecter">
+      <option value="1.png">あ〜さ行</option>
+      <option value="2.png">た〜は行</option>
+      <option value="3.png">ま〜わ行</option>
+      <option value="4.png">すべて（小）</option>
+    </select>
+    <button id="reload">再読み込み</button>
+  </p>
+  <div id="canvas-container">
+    <canvas id="canvas"></canvas>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const OTEHON_DIR = "./otehon/";
+      const PEN_WIDTH = 5;
+      const PEN_COLOR = "rgb(0,0,0)";
+      let otehon_file = "1.png";
+      const canvas_element = document.getElementById("canvas");
+      canvas_element.width = document.documentElement.clientWidth;
+      canvas_element.height = document.documentElement.clientHeight - 50;
+      const canvas = new fabric.Canvas('canvas');
+      loadOtehon(otehon_file);
+      canvas.freeDrawingBrush.color = PEN_COLOR;
+      canvas.freeDrawingBrush.width = PEN_WIDTH;
+      canvas.isDrawingMode = true;
+      document.getElementById("delete").addEventListener("click", cleanCanvas);
+      var selecter = document.getElementById('otehon_selecter');
+      selecter.onchange = function () {
+        otehon_file = this.value;
+        loadOtehon(otehon_file);
+        cleanCanvas();
+      }
+      function loadOtehon(filename) {
+        const filePath = OTEHON_DIR + filename;
+        fabric.Image.fromURL(filePath, function (otehonImg) {
+          if (canvas.width / canvas.height > otehonImg.width / otehonImg.height) {
+            otehonImg.scaleToHeight(canvas.height);
+          } else {
+            otehonImg.scaleToWidth(canvas.width);
+          }
+          canvas.setBackgroundImage(otehonImg, canvas.renderAll.bind(canvas), {
+            left: (canvas.width - otehonImg.width * otehonImg.scaleX) / 2,
+            opacity: 0.2
+          });
+        });
+      }
+      function cleanCanvas() {
+        canvas.getObjects().forEach(element => {
+          canvas.remove(element);
+        });
+        canvas.requestRenderAll();
+      }
+      document.getElementById("reload").addEventListener("click", () => {
+        console.log("reload");
+        window.location.reload();
+      });
+    });
+  </script>
+</body>

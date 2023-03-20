@@ -1,2 +1,35 @@
-<h1>Public::Users#edit</h1>
-<p>Find me in app/views/public/users/edit.html.erb</p>
+<h1>会員情報編集</h1>
+
+
+    <%= form_with model: @user ,url: users_information_path ,method: :patch do |f| %>
+
+
+     <table class="table table-bordered">
+        <tr>
+          <td class="table-secondary">メールアドレス</td>
+          <td><%= f.text_field :email, autofocus: true %></td>
+        </tr>
+        <tr>
+          <td class="table-secondary">氏名</td>
+          <td><%= f.text_field :last_name %></td>
+        </tr>
+        <tr>
+          <td class="table-secondary">カナ</td>
+          <td><%= f.text_field :first_name_kana %></td>
+        </tr>
+        <tr>
+          <td class="table-secondary">住所</td>
+          <td><%= f.text_field :address %></td>
+        </tr>
+      </table>
+
+    <%= f.submit '編集内容を保存',class: "btn btn-success" %>
+    <%= link_to "退会する" , users_unsubscribe_path , method: :get ,class: "btn btn-danger btn-sm" %>
+
+
+<% end %>
+
+
+
+
+
