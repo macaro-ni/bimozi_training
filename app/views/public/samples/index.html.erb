@@ -1,0 +1,6 @@
+<h1>文字ジャンル一覧</h1>
+
+<% @genres.each do |genre| %>
+  <li><%= link_to genre.name, sample_path(genre.id) %></li>
+<% end %>
+

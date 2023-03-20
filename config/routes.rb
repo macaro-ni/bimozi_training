@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get root to: "homes#top"
     get 'about' => 'homes#about', as: :about
     #samples
-    get 'samples'=> 'samples#show'
+    #get 'samples'=> 'samples#show'
     #users
     get 'users/my_page' => 'users#show'
     get 'users/information_edit' => 'users#edit'
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     patch '/users/withdraw' => 'users#withdrawal'
 
     #その他
+    resources :samples, only: [:index, :show]
     resources :favorites, only: [:index,:create,:destroy]
     resources :practices, only: [:show,:index,:create,:destroy]
     #resources :users, only: [:show,:edit,:update]
