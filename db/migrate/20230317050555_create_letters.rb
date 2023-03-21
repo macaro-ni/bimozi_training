@@ -4,7 +4,7 @@ class CreateLetters < ActiveRecord::Migration[6.1]
     
     #追加
       t.integer :genre_id, null: false
-      t.integer :name,     null: false
+      t.string :name,     null: false
       
       t.timestamps
     end

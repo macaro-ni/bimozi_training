@@ -8,3 +8,16 @@
 <!--<li>< %= link_to "都道府県", samples_path %></li>-->
 <!--<li>< %= link_to "冠婚葬祭", samples_path %></li>-->
 <!--<li>< %= link_to "例文集", samples_path %></li>-->
+
+<H3>お手本文字登録</H3>
+
+<%= form_with model: @letter do |f| %>
+  <%= f.label :name, "文字名" %>
+  <%= f.text_field :name %>
+
+  <!--genreはセレクトボックスで-->
+  <%= f.label :genre, "ジャンル名" %>
+  <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id,:name) %>
+
+  <%= f.submit "登録" %>
+<% end %>

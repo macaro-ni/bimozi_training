@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2023_03_17_051910) do
 
   create_table "letters", force: :cascade do |t|
     t.integer "genre_id", null: false
-    t.integer "name", null: false
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
