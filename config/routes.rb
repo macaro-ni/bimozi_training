@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'samples' => 'samples#show'
-    resources :letters, only: [:index,:edit,:create,:update,:destroy]
+    resources :letters, only: [:index,:show,:edit,:create,:update,:destroy]
   end
 
   scope module: 'public' do

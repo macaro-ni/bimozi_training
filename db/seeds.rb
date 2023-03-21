@@ -13,3 +13,9 @@ Genre.create!([
     {name: '冠婚葬祭'},
     {name: '例文集'}
   ])
+  
+  Admin.create!(
+      email: 'admin@test',
+      password: 'admintest'
+      )
+  

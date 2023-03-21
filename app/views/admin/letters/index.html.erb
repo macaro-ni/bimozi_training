@@ -1,2 +1,6 @@
-<h1>Admin::Letters#index</h1>
-<p>Find me in app/views/admin/letters/index.html.erb</p>
+<h1>文字ジャンル一覧</h1>
+
+<% @genres.each do |genre| %>
+  <li><%= link_to genre.name, sample_path(genre.id) %></li>
+<% end %>
+
