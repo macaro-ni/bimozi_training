@@ -1,31 +1,61 @@
-<h1>文字練習</h1>
+<!--<div class="container">-->
+<!--  <div class="row">-->
 
-<div>
-    <input type="radio" id="draw" name="mode">
-    <label for="draw">ペン</label>
-    <input type="radio" id="erase" name="mode">
-    <label for="draw">消しゴム</label>
-</div>
-<div>
-    <input type="button" id="downloadPng">
-</div>
-<br>
+    <h1>文字練習</h1>
 
-<!-- お絵描きエリアの設定 -->
-<canvas id="canvas" height="500" width="500" style="border-style: solid; border-color: black;"></canvas>
+    <div>
+        <input type="radio" id="draw" name="mode">
+        <label for="draw">ペン</label>
+        <input type="radio" id="erase" name="mode">
+        <label for="draw">消しゴム</label>
+        <button onclick="canvas.clear().renderAll()">全て削除</button>
+    </div>
+    <div>
+        <!--<input type="button" id="downloadPng">-->
+    </div>
+    <br>
 
-<!-- Fabric.jsの読み込み -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
+    <!-- お絵描きエリアの設定 -->
+    <canvas id="canvas" height="500" width="500" style="border-style: solid; border-color: black;"></canvas>
 
-<!--ペン機能-->
-<script>
-const canvas = new fabric.Canvas("canvas");
+    <!-- Fabric.jsの読み込み -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
 
-document.getElementById("draw").addEventListener("click", function () {
-    canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
-    canvas.freeDrawingBrush.width=5;
-    canvas.freeDrawingBrush.color="black";
-    canvas.isDrawingMode = true;
-});
+    <!--ペン機能-->
+    <script>
+    const canvas = new fabric.Canvas("canvas");
 
-</script>
+    document.getElementById("draw").addEventListener("click", function () {
+        canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
+        canvas.freeDrawingBrush.width=5;
+        canvas.freeDrawingBrush.color="black";
+        canvas.isDrawingMode = true;
+    });
+
+    // 消しゴム機能
+        canvas.backgroundColor="white";
+
+    document.getElementById("erase").addEventListener("click", function () {
+      canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
+      canvas.freeDrawingBrush.width=10;
+      canvas.freeDrawingBrush.color="white";
+      canvas.isDrawingMode = true;
+    });
+
+  // 画像保存機能
+      function chgImg()
+    {
+      var png = cvs.toDataURL();
+      document.getElementById("newImg").src = png;
+    }
+
+    </script>
+
+
+    <form>
+      <input type="button" value="画像に変換" onclick="chgImg()">
+    </form>
+    
+
+<!--  </div>-->
+<!--</div>-->
