@@ -1,4 +1,8 @@
 <h1>文字ジャンル詳細</h1>
 
-<!--以下に各文字を表示（とりあえず全部出して、上のリンクから検索で選ぶ？）-->
-<h5>文字見本一覧</h5>
+<h5>文字ジャンル：<%= @genre.name %></h5>
+<%= @letters.each do |letter| %>
+   <li><%= link_to practice_path(letter.id) do %>
+           <%= letter.name %>
+       <% end %></li>
+<% end %>
