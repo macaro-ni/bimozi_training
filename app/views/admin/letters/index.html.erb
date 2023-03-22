@@ -1,7 +1,7 @@
 <h1>文字ジャンル一覧</h1>
 
 <% @genres.each do |genre| %>
-  <li><%= link_to genre.name, sample_path(genre.id) %></li>
+  <li><%= link_to genre.name, admin_letter_path(genre.id) %></li>
 <% end %>
 
 <!--<li>< %= link_to "1文字ずつ練習", sample_path(@genre.id) %></li>-->

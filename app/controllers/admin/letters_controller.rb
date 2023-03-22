@@ -5,11 +5,13 @@ class Admin::LettersController < ApplicationController
   end
 
   def show
-    @letters=Letter.where(genre_id: 1)
+    @letters=Letter.where(genre_id: params[:id])
+    @genre=Genre.find(params[:id])
   end
 
 
   def edit
+    @letter=Letter.find(params[:id])
   end
 
   def create
@@ -19,9 +21,15 @@ class Admin::LettersController < ApplicationController
   end
 
   def update
+    letter=Letter.find(params[:id])
+    letter.update(letter_params)
+    redirect_to admin_letters_path(letter.genre_id)
   end
 
   def destroy
+    letter=Letter.find(params[:id])
+    letter.destroy
+    redirect_to admin_letters_path(letter.genre_id)
   end
 
 

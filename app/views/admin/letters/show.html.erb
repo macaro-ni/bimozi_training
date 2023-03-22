@@ -1,7 +1,9 @@
 <h1>お手本文字ジャンル詳細</h1>
 
+<h5>文字ジャンル：<%= @genre.name %></h5>
 <%= @letters.each do |letter| %>
-  <h5>文字ジャンル：<%= letter.genre.name %></h5>
-
-  <li><%= letter.name %></li>
+   <li><%= letter.name %></li>
+   <%= link_to "編集", edit_admin_letter_path(letter.id) %>
+  <%= link_to "削除", admin_letter_path(letter.id) %>
 <% end %>
+
