@@ -11,7 +11,7 @@
         <button onclick="canvas.clear().renderAll()">全て削除</button>
     </div>
     <div>
-        <!--<input type="button" id="downloadPng">-->
+        <input type="button" id="downloadPng">
     </div>
     <br>
 
@@ -42,20 +42,59 @@
       canvas.isDrawingMode = true;
     });
 
+// ダウンロード
+document.getElementById("downloadPng").addEventListener("click", function () {
+   const base64 = canvas.toDataURL({
+       format: "png",
+   });
+   
+    document.getElementById("newImg").value = base64;
+
+
+    $.ajax({
+      url: "https://086192e85b094c90b02448a4e1eca7d4.vfs.cloud9.ap-northeast-1.amazonaws.com/post_image",  // リクエストを送信するURLを指定
+      type: "POST",  // HTTPメソッドを指定（デフォルトはGET）
+      data: {  // 送信するデータをハッシュ形式で指定
+        image: {body: base64}
+      },
+      dataType: "json"  // レスポンスデータをjson形式と指定する
+    })
+    .done(function(data) {
+      alert("ok")  // textareaを空にする
+    })
+    .fail(function() {
+      alert("error!");  // 通信に失敗した場合はアラートを表示
+    })
+    .always(function() {
+      $(".note_form-btn").prop("disabled", false);  // submitボタンのdisableを解除
+      $(".note_form-btn").removeAttr("data-disable-with");  // submitボタンのdisableを解除(Rails5.0以降はこちらも必要)
+    });
+   
+   　
+});
+
+
   // 画像保存機能
       function chgImg()
     {
       var png = cvs.toDataURL();
+      byebug
       document.getElementById("newImg").src = png;
     }
 
     </script>
+    <textarea id="newImg"></textarea>
 
+    <!--< %= form_with model: @practices do |f| %>-->
+    <!--  < %= f.submit "画像に変換" %>-->
+    <!--    < %= f.hidden_field :image,accept: "image/*" %>-->
+    <!--< %= submit '保存' %>-->
+    <!--< % end %>-->
 
+    <!--このformを上記に書き換えてみたけど描画できなくなったのでコメントアウトした-->
     <form>
-      <input type="button" value="画像に変換" onclick="chgImg()">
-    </form>
-    
+       <input type="button" value="画像に変換" onclick="chgImg()">
+     </form>
 
 <!--  </div>-->
 <!--</div>-->

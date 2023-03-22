@@ -1,2 +1,5 @@
-<h1>Public::Practices#index</h1>
-<p>Find me in app/views/public/practices/index.html.erb</p>
+<h1>練習の記録</h1>
+
+<%= @practice_records.each do |practice_record| %>
+  <%= @practice_record.image %>
+<% end %>

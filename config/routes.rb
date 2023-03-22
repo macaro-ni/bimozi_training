@@ -18,11 +18,13 @@ Rails.application.routes.draw do
     patch '/users/information' => 'users#update'
     get 'users/unsubscribe' => 'users#confirm'
     patch '/users/withdraw' => 'users#withdrawal'
+    post "post_image" => "practices#image"
 
     #その他
     resources :samples, only: [:index, :show]
     resources :favorites, only: [:index,:create,:destroy]
     resources :practices, only: [:show,:index,:create,:destroy]
+    
     #resources :users, only: [:show,:edit,:update]
 
 
