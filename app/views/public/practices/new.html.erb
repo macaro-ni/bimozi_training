@@ -1,0 +1,100 @@
+<!--<div class="container">-->
+<!--  <div class="row">-->
+
+    <h1>文字練習</h1>
+
+    <div>
+        <input type="radio" id="draw" name="mode">
+        <label for="draw">ペン</label>
+        <input type="radio" id="erase" name="mode">
+        <label for="draw">消しゴム</label>
+        <button onclick="canvas.clear().renderAll()">全て削除</button>
+    </div>
+    <div>
+        <input type="button" id="downloadPng">
+    </div>
+    <br>
+
+    <!-- お絵描きエリアの設定 -->
+    <canvas id="canvas" height="500" width="500" style="border-style: solid; border-color: black;"></canvas>
+
+    <!-- Fabric.jsの読み込み -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
+
+    <!--ペン機能-->
+    <script>
+    const canvas = new fabric.Canvas("canvas");
+
+    document.getElementById("draw").addEventListener("click", function () {
+        canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
+        canvas.freeDrawingBrush.width=5;
+        canvas.freeDrawingBrush.color="black";
+        canvas.isDrawingMode = true;
+    });
+
+    // 消しゴム機能
+        canvas.backgroundColor="white";
+
+    document.getElementById("erase").addEventListener("click", function () {
+      canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
+      canvas.freeDrawingBrush.width=10;
+      canvas.freeDrawingBrush.color="white";
+      canvas.isDrawingMode = true;
+    });
+
+// ダウンロード
+document.getElementById("downloadPng").addEventListener("click", function () {
+   const base64 = canvas.toDataURL({
+       format: "png",
+   });
+
+    document.getElementById("newImg").value = base64;
+
+
+    $.ajax({
+      url: "https://086192e85b094c90b02448a4e1eca7d4.vfs.cloud9.ap-northeast-1.amazonaws.com/post_image",  // リクエストを送信するURLを指定
+      type: "POST",  // HTTPメソッドを指定（デフォルトはGET）
+      data: {  // 送信するデータをハッシュ形式で指定
+        image: {body: base64}
+      },
+      dataType: "json"  // レスポンスデータをjson形式と指定する
+    })
+    .done(function(data) {
+      alert("ok")  // textareaを空にする
+    })
+    .fail(function() {
+      alert("error!");  // 通信に失敗した場合はアラートを表示
+    })
+    .always(function() {
+      $(".note_form-btn").prop("disabled", false);  // submitボタンのdisableを解除
+      $(".note_form-btn").removeAttr("data-disable-with");  // submitボタンのdisableを解除(Rails5.0以降はこちらも必要)
+    });
+
+
+});
+
+
+  // 画像保存機能
+      function chgImg()
+    {
+      var png = cvs.toDataURL();
+      byebug
+      document.getElementById("newImg").src = png;
+    }
+
+    </script>
+    <textarea id="newImg"></textarea>
+
+    <!--< %= form_with model: @practices do |f| %>-->
+    <!--  < %= f.submit "画像に変換" %>-->
+    <!--    < %= f.hidden_field :image,accept: "image/*" %>-->
+    <!--< %= submit '保存' %>-->
+    <!--< % end %>-->
+
+    <!--このformを上記に書き換えてみたけど描画できなくなったのでコメントアウトした-->
+    <form>
+       <input type="button" value="画像に変換" onclick="chgImg()">
+     </form>
+
+<!--  </div>-->
+<!--</div>-->

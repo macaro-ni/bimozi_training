@@ -1,6 +1,8 @@
 class Public::PracticesController < ApplicationController
 
-  def show
+  def new
+    # 一応書いただけ
+    @practice_records=PracticeRecord.all
   end
 
   def index
@@ -9,9 +11,9 @@ class Public::PracticesController < ApplicationController
   end
 
 
-  
+
   def  image
-    
+
   end
 
   def destroy

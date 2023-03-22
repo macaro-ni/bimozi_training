@@ -21,11 +21,14 @@ Rails.application.routes.draw do
     post "post_image" => "practices#image"
 
     #その他
-    resources :samples, only: [:index, :show]
+    resources :samples , only: [:index, :show] do
+      resources :practices, only: [:new,:index,:create,:destroy]
+    end
+
     resources :favorites, only: [:index,:create,:destroy]
-    resources :practices, only: [:show,:index,:create,:destroy]
-    
-    #resources :users, only: [:show,:edit,:update]
+
+    #ネストさせたのでコメントアウト resources :practices, only: [:show,:new,:index,:create,:destroy]
+    #不要になったのでコメントアウト　resources :users, only: [:show,:edit,:update]
 
 
   end
