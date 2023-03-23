@@ -1,11 +1,21 @@
 <h1>文字ジャンル一覧</h1>
 
+    <table>
+        <tr><td>1文字だけ練習</td></tr>
+        <tr><td></td></tr>
+        <tr><td></td></tr>
+        <tr><td></td></tr>
+        <tr><td>冠婚葬祭</td></tr>
+        <tr><td></td></tr>
+        <tr><td></td></tr>
+    </table>
+
 <% @genres.each do |genre| %>
   <li><%= link_to genre.name, sample_path(genre.id) %></li>
 <% end %>
 
 
 <!--<li>< %= link_to "1文字ずつ練習", sample_path(@genre.id) %></li>-->
-<!--<li>< %= link_to "都道府県", samples_path %></li>-->
-<!--<li>< %= link_to "冠婚葬祭", samples_path %></li>-->
-<!--<li>< %= link_to "例文集", samples_path %></li>-->
+<!--<li>< %= link_to "都道府県", sample_path(@genre.id) %></li>-->
+<!--<li>< %= link_to "冠婚葬祭", sample_path(@genre.id) %></li>-->
+<!--<li>< %= link_to "例文集", sample_path(@genre.id) %></li>-->
