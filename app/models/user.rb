@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :practice_records,dependent: :destroy
+  has_many :favorites,dependent: :destroy
   
   #ゲストログイン機能のため追加
   def self.guest
@@ -12,6 +13,11 @@ class User < ApplicationRecord
       #user.password_confirmation = user.password
       #user.name = "ゲストユーザー"
     end
+  end
+  
+  # お気に入り機能のため追加
+  def favorite_find(letter_id)
+    favorites.where(letter_id: letter_id).exists?
   end
 
 end

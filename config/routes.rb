@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     #homes
     get root to: "homes#top"
     get 'about' => 'homes#about', as: :about
+    # favorites
+    post 'favorite/:id' => 'favorites#create', as: 'create_favorite'
+    delete 'favorite/:id' => 'favorites#destroy', as: 'destroy_favorite'
+  
     #samples
     #get 'samples'=> 'samples#show'
     #users
@@ -22,12 +26,12 @@ Rails.application.routes.draw do
 
     #その他
     resources :samples , only: [:index, :show] do
-      resources :practices, only: [:new,:index,:create,:destroy]
+      resources :practices, only: [:new]
     end
 
     resources :favorites, only: [:index,:create,:destroy]
 
-    #ネストさせたのでコメントアウト resources :practices, only: [:show,:new,:index,:create,:destroy]
+    resources :practices, only: [:index,:create,:destroy]
     #不要になったのでコメントアウト　resources :users, only: [:show,:edit,:update]
 
 
