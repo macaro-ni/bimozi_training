@@ -1,8 +1,7 @@
 class Public::PracticesController < ApplicationController
 
   def new
-    # 一応書いただけ
-    @practice_records=PracticeRecord.all
+    @letter=Letter.find(params[:sample_id])
   end
 
   def index

@@ -47,7 +47,7 @@ document.getElementById("downloadPng").addEventListener("click", function () {
    const base64 = canvas.toDataURL({
        format: "png",
    });
-   
+
     document.getElementById("newImg").value = base64;
 
 
@@ -69,8 +69,8 @@ document.getElementById("downloadPng").addEventListener("click", function () {
       $(".note_form-btn").prop("disabled", false);  // submitボタンのdisableを解除
       $(".note_form-btn").removeAttr("data-disable-with");  // submitボタンのdisableを解除(Rails5.0以降はこちらも必要)
     });
-   
-   　
+
+
 });
 
 
