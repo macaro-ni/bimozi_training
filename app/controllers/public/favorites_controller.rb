@@ -13,7 +13,8 @@ class Public::FavoritesController < ApplicationController
   def destroy
     favorite = Favorite.find_by(user_id: current_user.id, letter_id: params[:id])
     favorite.destroy
-    redirect_to favorites_path
+    redirect_back(fallback_location: favorites_path)
+    # redirect_to favorites_path
   end
 
 end
