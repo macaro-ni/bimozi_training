@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     # favorites
     post 'favorite/:id' => 'favorites#create', as: 'create_favorite'
     delete 'favorite/:id' => 'favorites#destroy', as: 'destroy_favorite'
-  
+    get 'favorites' => 'favorites#index'
     #samples
     #get 'samples'=> 'samples#show'
     #users
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
       resources :practices, only: [:new]
     end
 
-    resources :favorites, only: [:index,:create,:destroy]
+    # resources :favorites, only: [:index,:create,:destroy]
 
     resources :practices, only: [:index,:create,:destroy]
     #不要になったのでコメントアウト　resources :users, only: [:show,:edit,:update]

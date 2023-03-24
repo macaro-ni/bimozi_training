@@ -1,3 +1,7 @@
 <h1>お気に入り</h1>
 
 <p>繰り返し練習したい文字を一覧で表示できます</p>
+
+<%= @favorites.each do |favorite| %>
+    <%= favorite.letter.name %>
+<% end %>

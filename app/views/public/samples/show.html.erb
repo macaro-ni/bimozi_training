@@ -6,9 +6,9 @@
            <%= letter.name %>
            <!--お気に入り機能-->
            <% if current_user.favorite_find(letter.id) %>
-              <%= link_to 'お気に入りからはずす', '#' %>
+              <%= link_to 'お気に入りからはずす', destroy_favorite_path(letter.id), method: :delete %>
             <% else %>
-              <%= link_to 'お気に入り登録する', '#' %>
+              <%= link_to 'お気に入り登録する', create_favorite_path(letter.id), method: :post %>
             <% end %>
        <% end %></li>
 <% end %>
