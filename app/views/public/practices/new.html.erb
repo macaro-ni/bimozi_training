@@ -4,6 +4,12 @@
 <div>
 <!--railsの要素を入れたら描画できなくなったが、divで囲ったら解決した-->
     <h1>「<%= @letter.name %>」の練習</h1>
+
+    <!--canvasの背景設定時に追加-->
+    <div id="sample-text">
+      <%= @letter.name %>
+    </div>
+
 </div>
 
     <div>
@@ -36,7 +42,7 @@
     });
 
     // 消しゴム機能
-        canvas.backgroundColor="white";
+        // canvas.backgroundColor="white";
 
     document.getElementById("erase").addEventListener("click", function () {
       canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
@@ -44,6 +50,27 @@
       canvas.freeDrawingBrush.color="white";
       canvas.isDrawingMode = true;
     });
+
+
+      // canvasの背景を設定する関数
+  function setBackground(canvas, text) {
+    // 背景に使う画像のサイズをキャンバスと同じにする
+    canvas.setBackgroundImage('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="' + canvas.width + '" height="' + canvas.height + '"></svg>', canvas.renderAll.bind(canvas));
+
+    // テキストをキャンバスに描画する
+    var text = new fabric.Text(text, {
+      fontSize: 100,
+      fill: '#dcdcdc',
+      textAlign: 'center'
+    });
+    canvas.add(text);
+  }
+// フォームから文字列を取得する
+var sampleText = document.getElementById('sample-text').textContent;
+
+// Canvasの背景を設定する
+setBackground(canvas, sampleText);
+
 
 // ダウンロード
 document.getElementById("downloadPng").addEventListener("click", function () {
