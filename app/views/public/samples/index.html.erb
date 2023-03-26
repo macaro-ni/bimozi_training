@@ -11,7 +11,7 @@
           </ul>
 
         <h5>入力した文字を練習する</h5>
-          <%= form_with model: @letter do |f| %>
+          <%= form_with model: @letter ,url:samples_path do |f| %>
             <%= f.text_field :name %>
             <%= f.hidden_field :genre_id, :value => "8" %>
             <%= f.submit '実行' %>

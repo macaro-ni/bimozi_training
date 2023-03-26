@@ -2,6 +2,7 @@ class Public::SamplesController < ApplicationController
 
  def index
    @genres=Genre.all
+   @letter=Letter.new
  end
 
   def show
