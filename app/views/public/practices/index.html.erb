@@ -1,5 +1,7 @@
 <h1>練習の記録</h1>
 
-<%= @practice_records.each do |practice_record| %>
-  <%= @practice_record.image %>
+<% @practice_records.each do |practice_record| %>
+<% if practice_record.image.attached? %>
+  <%= image_tag practice_record.image %>
+<%end %>
 <% end %>

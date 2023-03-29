@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     patch '/users/information' => 'users#update'
     get 'users/unsubscribe' => 'users#confirm'
     patch '/users/withdraw' => 'users#withdrawal'
-    post "post_image" => "practices#image"
+    post "letters/:id/post_image" => "practices#image", as: "image"
 
     #その他
     resources :samples , only: [:index, :show,:create] do
