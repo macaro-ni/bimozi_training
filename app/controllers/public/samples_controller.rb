@@ -6,8 +6,9 @@ class Public::SamplesController < ApplicationController
  end
 
   def show
-    @letters=Letter.where(genre_id: params[:id])
     @genre=Genre.find(params[:id])
+    @letters=Letter.where(genre_id: @genre.id)
+
   end
 
   def create

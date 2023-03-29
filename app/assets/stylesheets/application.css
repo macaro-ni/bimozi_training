@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Klee+One:wght@600&display=swap');
+.sample_font{
+  font-family: 'Klee One', cursive;
+}
