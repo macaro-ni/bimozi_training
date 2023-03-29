@@ -13,8 +13,17 @@ class Public::SamplesController < ApplicationController
 
   def create
    entered_letter=Letter.new(entered_letter_params)
-   entered_letter.save
-   redirect_to new_sample_practice_path(entered_letter.id)
+    ##追加した文字が既に登録済みかの判別
+    same_letter=Letter.find_by(name: entered_letter.name)
+    if same_letter.present?
+     ##登録済みの場合、同じ名前のものを取り出す
+      redirect_to new_sample_practice_path(same_letter.id)
+    else
+      ##未登録の場合、save
+      entered_letter.save
+      redirect_to new_sample_practice_path(entered_letter.id)
+    end
+
   end
 
  private
