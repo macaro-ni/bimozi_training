@@ -1,5 +1,6 @@
 class Admin::LettersController < ApplicationController
   def index
+    @letter=Letter.new
     @genres=Genre.all
 
   end
@@ -23,13 +24,13 @@ class Admin::LettersController < ApplicationController
   def update
     letter=Letter.find(params[:id])
     letter.update(letter_params)
-    redirect_to admin_letters_path(letter.genre_id)
+    redirect_to admin_letter_path(letter.genre_id)
   end
 
   def destroy
     letter=Letter.find(params[:id])
     letter.destroy
-    redirect_to admin_letters_path(letter.genre_id)
+    redirect_to admin_letter_path(letter.genre_id)
   end
 
 
@@ -37,7 +38,7 @@ class Admin::LettersController < ApplicationController
   private
 
   def letter_params
-    params.permit(:name,:genre_id)
+    params.require(:letter).permit(:name,:genre_id)
   end
 
 end

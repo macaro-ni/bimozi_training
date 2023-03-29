@@ -105,7 +105,7 @@ document.getElementById("downloadPng").addEventListener("click", function () {
     .always(function() {
 
     });
-
+    //// .done：処理に成功した時（practice/indexぺージに遷移する）。.fail:処理に失敗した時（アラート表示）。.always:done,failの後にいつも行われるもの（特になし）。
 
 });
 
@@ -121,13 +121,6 @@ document.getElementById("downloadPng").addEventListener("click", function () {
     </script>
     <textarea id="newImg"></textarea>
 
-    <!--< %= form_with model: @practices do |f| %>-->
-    <!--  < %= f.submit "画像に変換" %>-->
-    <!--    < %= f.hidden_field :image,accept: "image/*" %>-->
-    <!--< %= submit '保存' %>-->
-    <!--< % end %>-->
-
-    <!--このformを上記に書き換えてみたけど描画できなくなったのでコメントアウトした-->
     <form>
        <input type="button" value="画像に変換" onclick="chgImg()">
      </form>

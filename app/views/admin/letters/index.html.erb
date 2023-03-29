@@ -11,7 +11,7 @@
 
 <H3>お手本文字登録</H3>
 
-<%= form_with model: @letter do |f| %>
+<%= form_with model: @letter ,url: admin_letters_path do |f| %>
   <%= f.label :name, "文字名" %>
   <%= f.text_field :name %>
 
