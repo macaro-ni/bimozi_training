@@ -16,7 +16,10 @@ class PracticeRecord < ApplicationRecord
     end
     attach_image(filename)
   end
-  
+
+
+
+
   private
 
   def create_extension(image)
@@ -32,6 +35,8 @@ class PracticeRecord < ApplicationRecord
     image.attach(io: File.open("#{Rails.root}/tmp/#{filename}"), filename: filename)
     FileUtils.rm("#{Rails.root}/tmp/#{filename}")
   end
+
+
 end
 
 

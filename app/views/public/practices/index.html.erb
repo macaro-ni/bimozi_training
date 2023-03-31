@@ -1,7 +1,22 @@
-<h1>練習の記録</h1>
+<div class="container">
 
-<% @practice_records.each do |practice_record| %>
-<% if practice_record.image.attached? %>
-  <%= image_tag practice_record.image %>
-<%end %>
-<% end %>
+  <div class="row">
+    <h1>練習の記録</h1>
+  </div>
+
+  <div class="row d-flex flex-wrap">
+    <% @practice_records.each do |practice_record| %>
+    <table>
+      <tr>
+        <td><% if practice_record.image.attached? %>
+          <%= image_tag practice_record.image, :size => '200x200' %>
+        <%end %></td>
+      </tr>
+      <tr>
+        <td><%= practice_record.letter.name %>
+        <%= practice_record.created_at.strftime('%Y/%m/%d') %>
+        <%= link_to '削除',practice_path(practice_record.id), method: :delete %></td>
+      </tr>
+    </table>
+    <% end %>
+  </div>

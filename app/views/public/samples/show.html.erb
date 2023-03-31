@@ -5,7 +5,7 @@
   <div class="row">
     <div>
     <h5><%= @genre.name %></h5>
-          <%= @letters.each do |letter| %>
+          <% @letters.each do |letter| %>
              <li class="list-unstyled">
                <%= link_to new_sample_practice_path(letter.id) do %>
                      <%= letter.name %>

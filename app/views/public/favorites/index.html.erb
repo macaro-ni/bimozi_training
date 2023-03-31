@@ -2,6 +2,6 @@
 
 <p>繰り返し練習したい文字を一覧で表示できます</p>
 
-<%= @favorites.each do |favorite| %>
-    <%= favorite.letter.name %>
+<% @favorites.each do |favorite| %>
+    <li><%= favorite.letter.name %></li>
 <% end %>

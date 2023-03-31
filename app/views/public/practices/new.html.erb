@@ -8,7 +8,7 @@
     <h1>「<%= @letter.name %>」の練習</h1>
 
     <!--canvasの背景設定時に追加-->
-    <div id="sample-text">
+    <div id="sample-text" class="web_font">
       <%= @letter.name %>
     </div>
 
@@ -58,8 +58,8 @@
 // ※以下はcanvas背景に文字を入れるための追記
       // canvasの背景を設定する関数
   function setBackground(canvas, text) {
-    // 背景に使う画像のサイズをキャンバスと同じにする
-    canvas.setBackgroundImage('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="' + canvas.width + '" height="' + canvas.height + '"></svg>', canvas.renderAll.bind(canvas));
+    // 背景に使う画像のサイズをキャンバスと同じにする:よくわからないのでコメントアウト
+    // canvas.setBackgroundImage('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg">" width="' + canvas.width + '" height="' + canvas.height + '</svg>', canvas.renderAll.bind(canvas));
 
 
     // テキストをキャンバスに描画する
