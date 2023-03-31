@@ -1,7 +1,7 @@
 <h1>マイページ</h1>
 
  <h5>登録情報</h5>
-    <%= link_to "編集する", users_information_edit_path ,class: "btn btn-success" %>
+    <%= link_to "編集する", users_information_edit_path %>
 
       <table class="table table-bordered">
         <tr>
@@ -22,7 +22,8 @@
         </tr>
       </table>
 
-      <li><%= link_to "お気に入り",favorites_path %> </li>
-       <li><%= link_to "練習の記録", practices_path %></li>
-
+      <ul class="list-unstyled">
+        <li><%= link_to "お気に入り",favorites_path %> </li>
+         <li><%= link_to "練習の記録", practices_path %></li>
+      </ul>
 
