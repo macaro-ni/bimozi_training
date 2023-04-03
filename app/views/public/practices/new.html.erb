@@ -58,7 +58,7 @@
 
 // ※以下はcanvas背景に文字を入れるための追記
 //       canvasの背景を設定する関数
-  function setBackground(canvas, text) {
+  // function setBackground(canvas, text){
     // 背景に使う画像のサイズをキャンバスと同じにする:よくわからないのでコメントアウト
     // canvas.setBackgroundImage('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg">" width="' + canvas.width + '" height="' + canvas.height + '</svg>', canvas.renderAll.bind(canvas));
 
@@ -72,39 +72,57 @@
       // canvas.setHeight(200);
 
 
-      var text = new fabric.Text(text, {
-        fontSize: 100,
-        fill: '#dcdcdc',
-        textAlign: 'center'
-        // stroke: null,
-        // strokeWidth: 0,
+//       var text = new fabric.Text(text, {
+//         fontSize: 100,
+//         fill: '#dcdcdc',
+//         textAlign: 'center'
+//         // stroke: null,
+//         // strokeWidth: 0,
 
-      });
+//       });
 
-      text.set({
-        borderColor: 'transparent',
-        cornerColor: 'transparent',
-        cornerStrokeColor: 'transparent',
-        stroke: 'transparent'
-      });
-
-
+//       text.set({
+//         borderColor: 'transparent',
+//         cornerColor: 'transparent',
+//         cornerStrokeColor: 'transparent',
+//         stroke: 'transparent'
+//       });
 
 
-      // 画像サイズを変更
-      text.scaleToWidth(250);
-      text.scaleToHeight(250);
-      // text.clearRect(0, 0, 200, 200);
 
-      canvas.add(text);
-    }
-// フォームから文字列を取得する
-var sampleText = document.getElementById('sample-text').textContent;
 
-// Canvasの背景を設定する
-setBackground(canvas, sampleText);
-// ※
+//       // 画像サイズを変更
+//       text.scaleToWidth(250);
+//       text.scaleToHeight(250);
+//       // text.clearRect(0, 0, 200, 200);
 
+//       canvas.add(text);
+//     }
+// // フォームから文字列を取得する
+// var sampleText = document.getElementById('sample-text').textContent;
+
+// // Canvasの背景を設定する
+// setBackground(canvas, sampleText);
+// // ※
+
+
+    // テキストを取得して、canvasに描画する
+    const text = document.getElementById("sample-text").innerText;
+    const textObject = new fabric.Text(text, {
+      left: 20,
+      top: 20,
+      fill: "#dcdcdc",
+      fontFamily: "Klee One",
+      fontSize: 48,
+    });
+    canvas.add(textObject);
+
+    document.getElementById("draw").addEventListener("click", function () {
+      canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
+      canvas.freeDrawingBrush.width=5;
+      canvas.freeDrawingBrush.color="black";
+      canvas.isDrawingMode = true;
+    });
 
 
 // ダウンロード
