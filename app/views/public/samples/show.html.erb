@@ -7,7 +7,7 @@
     <h5><%= @genre.name %></h5>
           <% @letters.each do |letter| %>
              <li class="list-unstyled">
-               <%= link_to new_sample_practice_path(letter.id) do %>
+               <%= link_to new_sample_practice_path(letter.id), data: {"turbolinks"=>false} do %>
                      <%= letter.name %>
                      <!--お気に入り機能-->
                      <% if current_user.favorite_find(letter.id) %>

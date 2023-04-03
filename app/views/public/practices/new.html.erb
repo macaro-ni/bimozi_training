@@ -8,7 +8,7 @@
     <h1>「<%= @letter.name %>」の練習</h1>
 
     <!--canvasの背景設定時に追加-->
-    <div id="sample-text" class="web_font">
+    <div id="sample-text" >
       <%= @letter.name %>
     </div>
 
@@ -27,8 +27,9 @@
     </div>
     <br>
 
+
     <!-- お絵描きエリアの設定 -->
-    <canvas id="canvas" height="500" width="500" style="border-style: solid; border-color: black;"></canvas>
+    <canvas id="canvas" height="500" width="1000" style="border-style: solid; border-color: black;"> </canvas>
 
     <!-- Fabric.jsの読み込み -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
@@ -56,20 +57,47 @@
 
 
 // ※以下はcanvas背景に文字を入れるための追記
-      // canvasの背景を設定する関数
+//       canvasの背景を設定する関数
   function setBackground(canvas, text) {
     // 背景に使う画像のサイズをキャンバスと同じにする:よくわからないのでコメントアウト
     // canvas.setBackgroundImage('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg">" width="' + canvas.width + '" height="' + canvas.height + '</svg>', canvas.renderAll.bind(canvas));
 
 
+
+
     // テキストをキャンバスに描画する
-    var text = new fabric.Text(text, {
-      fontSize: 100,
-      fill: '#dcdcdc',
-      textAlign: 'center'
-    });
-    canvas.add(text);
-  }
+    // var canvas = new fabric.Canvas('canvas');
+    // 以下２行を消したら２重のcanvas枠線消えたし、上の１行も２重でcanvas作ってたから消した（4/4 0:20）
+      // canvas.setWidth(200);
+      // canvas.setHeight(200);
+
+
+      var text = new fabric.Text(text, {
+        fontSize: 100,
+        fill: '#dcdcdc',
+        textAlign: 'center'
+        // stroke: null,
+        // strokeWidth: 0,
+
+      });
+
+      text.set({
+        borderColor: 'transparent',
+        cornerColor: 'transparent',
+        cornerStrokeColor: 'transparent',
+        stroke: 'transparent'
+      });
+
+
+
+
+      // 画像サイズを変更
+      text.scaleToWidth(250);
+      text.scaleToHeight(250);
+      // text.clearRect(0, 0, 200, 200);
+
+      canvas.add(text);
+    }
 // フォームから文字列を取得する
 var sampleText = document.getElementById('sample-text').textContent;
 
