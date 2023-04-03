@@ -2,7 +2,15 @@
 
   <div class="row">
     <h1>練習の記録</h1>
+    
+    <%= form_with url:practices_path , method: :get, local: true do |f| %>
+      <%= f.text_field :name %>
+      <%= f.submit :search %>
+    <% end %>
+
   </div>
+  
+  
 
   <div class="row d-flex flex-wrap">
     <% @practice_records.each do |practice_record| %>
