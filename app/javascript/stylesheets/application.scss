@@ -3,6 +3,10 @@
 //FontAwesome導入時に追加
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+body{
+  font-family: 'Noto Serif JP', serif;
+}
+
 h1{
   font-family: 'Klee One', cursive;
   font-size: 35px;
