@@ -2,15 +2,26 @@
 
 <!--<div class="container">-->
 <!--  <div class="row">-->
-
 <div>
+</div>
+<div>
+
 <!--railsの要素を入れたら描画できなくなったが、divで囲ったら解決した-->
     <h1>「<%= @letter.name %>」の練習</h1>
 
     <!--canvasの背景設定時に追加-->
     <div id="sample-text" >
       <!--< %= @letter.name %>-->
-      <%=safe_join(@letter.name.split("\n"),tag(:br))%>
+      <% if @letter.name.length >= 15 %>
+        <% num=0 %>
+        <% while num <= @letter.name.length do %>
+          <% letter15 = @letter.name[0,15] %>
+          <%= letter15 %></br>
+          <% num += 15 %>
+        <% end %>
+      <% else %>
+        <%=safe_join(@letter.name.split("\n"),tag(:br))%>
+      <% end %>
     </div>
 
 

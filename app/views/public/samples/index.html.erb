@@ -15,7 +15,7 @@
         <h5>入力した文字を練習する</h5>
           <p>長い文字の場合、15文字ごとに改行してください。</p>
           <%= form_with model: @letter ,url:samples_path do |f| %>
-            <%= f.text_area :name, class: "form-control", style: "width:280px" %>
+            <%= f.text_area :name, class: "form-control text-area", style: "width:280px" %>
             <%= f.hidden_field :genre_id, :value => "8" %>
             <%= f.submit '実行' %>
           <% end %>
