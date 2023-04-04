@@ -26,6 +26,7 @@ CS
       <header class="shadow-sm">
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container">
+            <span class="web-font border border-secondary p-2">美文字練習帳</span>
             <!--<a class="navbar-brand p-3" href="/">< %= image_tag('logo.jpg' , size: '120x90') %></a>-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,20 +36,20 @@ CS
               <ul class="navbar-nav ml-auto">
 
                 <% if admin_signed_in? %>
-                  <li><%= link_to "お手本ジャンル一覧", admin_letters_path %></li>
-                  <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+                  <li class="nav-item"><%= link_to "お手本ジャンル一覧", admin_letters_path, class:'nav-link text-dark btn btn-light' %></li>
+                  <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:'nav-link text-dark btn btn-light' %></li>
                 <% elsif user_signed_in? %>
-                  <li><%= link_to "マイページ",users_my_page_path %></li>
-                  <li><%= link_to "お手本を選ぶ", samples_path %></li>
-                  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                  <li class="nav-item"><%= link_to "マイページ",users_my_page_path, class:'nav-link text-dark btn btn-light' %></li>
+                  <li class="nav-item"><%= link_to "お手本を選ぶ", samples_path, class:'nav-link text-dark btn btn-light' %></li>
+                  <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'nav-link text-dark btn btn-light' %></li>
                 <% else %>
-                  <li>
-                    <%= link_to "新規登録", new_user_registration_path %>
+                  <li class="nav-item">
+                    <%= link_to "新規登録", new_user_registration_path, class:'nav-link text-dark btn btn-light' %>
                   </li>
-                  <li>
-                    <%= link_to "ログイン", new_user_session_path %>
+                  <li class="nav-item">
+                    <%= link_to "ログイン", new_user_session_path, class:'nav-link text-dark btn btn-light' %>
                   </li>
-                  <li><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %></li>
+                  <li class="nav-item"><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class:'nav-link text-dark btn btn-light' %></li>
                 <% end %>
                  </ul>
                 </div>

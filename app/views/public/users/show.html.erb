@@ -3,21 +3,21 @@
  <h5>登録情報</h5>
     <%= link_to "編集する", users_information_edit_path %>
 
-      <table class="table table-bordered">
+      <table class="table">
         <tr>
-          <td class="table-secondary">メールアドレス</td>
+          <td>メールアドレス</td>
           <td><%= @user.email %></td>
         </tr>
         <tr>
-          <td class="table-secondary">氏名</td>
+          <td>氏名</td>
           <td><%= @user.last_name %>　<%= @user.first_name %></td>
         </tr>
         <tr>
-          <td class="table-secondary">カナ</td>
+          <td>カナ</td>
           <td><%= @user.last_name_kana %>　<%= @user.first_name_kana %></td>
         </tr>
         <tr>
-          <td class="table-secondary">住所</td>
+          <td>住所</td>
           <td><%= @user.address %></td>
         </tr>
       </table>
