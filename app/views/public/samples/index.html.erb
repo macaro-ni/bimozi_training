@@ -1,19 +1,23 @@
 <div class="container">
   <div class="row">
+    <div>
         <h1>文字ジャンル一覧</h1>
+
+          <p>練習したい文字のジャンルを選んでください。</p>
+    </div>
 
         <div class= "col-md-12">
 
           <ul class="list-unstyled">
           <% @genres.each do |genre| %>
-            <li><%= link_to genre.name, sample_path(genre.id) %></li>
+            <li ><%= link_to genre.name, sample_path(genre.id), class: "border-bottom", style: "color: gray;" %></li>
           <% end %>
           </ul>
         </div>
 
         <div class="form-label">
         <h5>入力した文字を練習する</h5>
-          <p>長い文字の場合、15文字ごとに改行してください。</p>
+          <p>長い文字の場合、15文字ごとに改行されます。</p>
           <%= form_with model: @letter ,url:samples_path do |f| %>
             <%= f.text_area :name, class: "form-control text-area", style: "width:280px" %>
             <%= f.hidden_field :genre_id, :value => "8" %>
