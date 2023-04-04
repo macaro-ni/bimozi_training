@@ -9,7 +9,8 @@
 
     <!--canvasの背景設定時に追加-->
     <div id="sample-text" >
-      <%= @letter.name %>
+      <!--< %= @letter.name %>-->
+      <%=safe_join(@letter.name.split("\n"),tag(:br))%>
     </div>
 
 
@@ -113,16 +114,9 @@
       top: 20,
       fill: "#dcdcdc",
       fontFamily: "Klee One",
-      fontSize: 48,
+      fontSize: 60,
     });
     canvas.add(textObject);
-
-    document.getElementById("draw").addEventListener("click", function () {
-      canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
-      canvas.freeDrawingBrush.width=5;
-      canvas.freeDrawingBrush.color="black";
-      canvas.isDrawingMode = true;
-    });
 
 
 
