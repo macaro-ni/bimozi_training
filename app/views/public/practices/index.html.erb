@@ -2,28 +2,32 @@
 
   <div class="row">
     <h1>練習の記録</h1>
-    
-    <%= form_with url:practices_path , method: :get, local: true do |f| %>
-      <%= f.text_field :name %>
-      <%= f.submit :search %>
+    <!--検索フォーム-->
+    <%= form_with url:practices_path , method: :get, local: true, class: "mt-2 mx-3 p-1 search-form" do |f| %>
+      <%= f.text_field :name, placeholder: "文字名を入力"  %>
+      <%= f.submit "検索" %>
     <% end %>
 
   </div>
-  
-  
+
+
 
   <div class="row d-flex flex-wrap">
     <% @practice_records.each do |practice_record| %>
-    <table>
+    <table class="table m-1 table-borderless record-table">
+
       <tr>
-        <td><% if practice_record.image.attached? %>
-          <%= image_tag practice_record.image, :size => '200x200' %>
+        <td class="p-0"><% if practice_record.image.attached? %>
+          <%= image_tag practice_record.image, width: '100%' %>
         <%end %></td>
       </tr>
       <tr>
-        <td><%= practice_record.letter.name %>
-        <%= practice_record.created_at.strftime('%Y/%m/%d') %>
-        <%= link_to '削除',practice_path(practice_record.id), method: :delete %></td>
+        <td class="p-0">「<%= practice_record.letter.name %>」</td>
+      </tr>
+
+      <tr>
+        <td class="p-0"><%= practice_record.created_at.strftime('%Y/%m/%d') %>
+        <%= link_to '[削除]',practice_path(practice_record.id), method: :delete %></td>
       </tr>
     </table>
     <% end %>
