@@ -30,3 +30,11 @@ button:focus {
     outline: 0.9px  solid;
      outline: 5px auto #f5f5f5
 }
+
+// bootstrapを少しカスタマイズ
+.btn {
+//border-radius: 0.25rem;
+border-radius: 0;
+background-color: #f5f5f5;
+
+}

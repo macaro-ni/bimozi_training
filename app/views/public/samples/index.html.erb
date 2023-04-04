@@ -21,7 +21,7 @@
           <%= form_with model: @letter ,url:samples_path do |f| %>
             <%= f.text_area :name, class: "form-control text-area", style: "width:280px" %>
             <%= f.hidden_field :genre_id, :value => "8" %>
-            <%= f.submit '実行' %>
+            <%= f.submit '実行',class: "btn btn-sm" %>
           <% end %>
         </div>
 
