@@ -40,7 +40,11 @@
         <!--<button onclick="canvas.clear().renderAll()", class: "btn btn-sm">全て削除</button>-->
     </div>
     <div>
-        <input type="button" id="downloadPng" value="保存" class="btn btn-sm" >
+        <% if current_user.email == 'guest@example.com' %>
+          [会員の方は練習の記録ができます。]
+        <% else %>
+          <input type="button" id="downloadPng" value="保存" class="btn btn-sm" >
+        <% end %>
     </div>
     <br>
 

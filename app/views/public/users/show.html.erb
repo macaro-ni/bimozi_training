@@ -3,42 +3,49 @@
     <h1>マイページ</h1>
   </div>
   <div class="row col-8">
-    <div>
-     <h5>登録情報</h5>
-     <p>登録された名前、住所は文字ジャンル「年賀状」で練習できます。</p>
+
+    <% if @user.email == 'guest@example.com'%>
+      <p>ゲストユーザーはユーザー情報の登録・編集ができません。</p>
+    <% else %>
+
+      <div>
+       <h5>登録情報</h5>
+       <p>登録された名前、住所は文字ジャンル「年賀状」で練習できます。</p>
+      </div>
+
+        <table class="table table-sm table-borderless border">
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= @user.email %></td>
+          </tr>
+          <tr>
+            <td>氏名</td>
+            <td><%= @user.last_name %>　<%= @user.first_name %></td>
+          </tr>
+          <tr>
+            <td>カナ</td>
+            <td><%= @user.last_name_kana %>　<%= @user.first_name_kana %></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td><%= @user.address %></td>
+          </tr>
+          <tr class="d-flex align-items-center justify-content-center">
+            <td colspan="2" ><%= link_to "編集する", users_information_edit_path, class: "btn btn-sm" %></td>
+          </tr>
+        </table>
+
+
+        <ul class="list-unstyled d-flex align-items-center justify-content-center">
+          <li><%= link_to favorites_path, class: "btn btn-sm m-3" do %>
+              <i class="fa-solid fa-heart" style="color: #444546;"></i> お気に入り
+              <% end %>
+          </li>
+           <li><%= link_to practices_path, class: "btn btn-sm" do %>
+               <i class="fa-solid fa-book-open-reader" style="color: #444546;"></i> 練習の記録
+               <% end %>
+           </li>
+        </ul>
     </div>
 
-      <table class="table table-sm table-borderless border">
-        <tr>
-          <td>メールアドレス</td>
-          <td><%= @user.email %></td>
-        </tr>
-        <tr>
-          <td>氏名</td>
-          <td><%= @user.last_name %>　<%= @user.first_name %></td>
-        </tr>
-        <tr>
-          <td>カナ</td>
-          <td><%= @user.last_name_kana %>　<%= @user.first_name_kana %></td>
-        </tr>
-        <tr>
-          <td>住所</td>
-          <td><%= @user.address %></td>
-        </tr>
-        <tr class="d-flex align-items-center justify-content-center">
-          <td colspan="2" ><%= link_to "編集する", users_information_edit_path, class: "btn btn-sm" %></td>
-        </tr>
-      </table>
-
-
-      <ul class="list-unstyled d-flex align-items-center justify-content-center">
-        <li><%= link_to favorites_path, class: "btn btn-sm m-3" do %>
-            <i class="fa-solid fa-heart" style="color: #444546;"></i> お気に入り
-            <% end %>
-        </li>
-         <li><%= link_to practices_path, class: "btn btn-sm" do %>
-             <i class="fa-solid fa-book-open-reader" style="color: #444546;"></i> 練習の記録
-             <% end %>
-         </li>
-      </ul>
-  </div>
+    <% end %>

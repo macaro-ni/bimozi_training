@@ -5,24 +5,29 @@
   <div class="row">
     <div>
     <h5><%= @genre.name %></h5>
-          <% @letters.each do |letter| %>
-             <li class="list-unstyled">
-               <%= link_to new_sample_practice_path(letter.id), data: {"turbolinks"=>false}, class: "border-bottom", style: "color: gray;" do %>
-                     <%= letter.name %>
-                     <!--お気に入り機能-->
-                     <% if current_user.favorite_find(letter.id) %>
-                        <%= link_to destroy_favorite_path(letter.id), method: :delete do %>
-                          <i class="fa-regular fa-heart" style="color: #ecacac;"></i>
-                        <% end %>
-                      <% else %>
-                        <%= link_to create_favorite_path(letter.id), method: :post do %>
-                          <i class="fa-solid fa-heart" style="color: #ecacac;"></i>
-                        <% end %>
-                      <% end %>
-                <% end %>
-              </li>
+            <% @letters.each do |letter| %>
+              <!--[if]フォーム入力文字の場合、自分が入力したものだけを保存する。-->
+              <% if letter.genre_id != 8 || letter.user_id == current_user.id %>
+                 <li class="list-unstyled">
+                   <%= link_to new_sample_practice_path(letter.id), data: {"turbolinks"=>false}, class: "border-bottom", style: "color: gray;" do %>
+                         <%= letter.name %>
+                         <!--お気に入り機能-->
+                         <% if current_user.favorite_find(letter.id) %>
+                            <%= link_to destroy_favorite_path(letter.id), method: :delete do %>
+                              <i class="fa-regular fa-heart" style="color: #ecacac;"></i>
+                            <% end %>
+                          <% else %>
+                            <%= link_to create_favorite_path(letter.id), method: :post do %>
+                              <i class="fa-solid fa-heart" style="color: #ecacac;"></i>
+                            <% end %>
+                          <% end %>
+                    <% end %>
+                  </li>
+              <% end %>
 
-           <% end %>
+            <% end %>
+
+
     </div>
   </div>
 </div>

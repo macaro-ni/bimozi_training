@@ -20,6 +20,7 @@ class Public::SamplesController < ApplicationController
       redirect_to new_sample_practice_path(same_letter.id)
     else
       ##未登録の場合、save
+      entered_letter.user_id=current_user.id
       entered_letter.save
       redirect_to new_sample_practice_path(entered_letter.id)
     end
