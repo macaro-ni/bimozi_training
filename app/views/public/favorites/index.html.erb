@@ -4,7 +4,7 @@
 
 <% @favorites.each do |favorite| %>
     <li class="list-unstyled">
-        <%= link_to new_sample_practice_path(favorite.letter.id), data: {"turbolinks"=>false} do %>
+        <%= link_to new_sample_practice_path(favorite.letter.id), data: {"turbolinks"=>false}, class: "border-bottom", style: "color: gray;" do %>
                      <%= favorite.letter.name %>
                      <!--お気に入り機能-->
                      <% if current_user.favorite_find(favorite.letter.id) %>

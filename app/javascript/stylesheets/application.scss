@@ -3,8 +3,12 @@
 //FontAwesome導入時に追加
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+
+
 body{
   font-family: 'Noto Serif JP', serif;
+  letter-spacing: .1em;
+  line-height: 2.3;
 }
 
 h1{
