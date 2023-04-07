@@ -3,19 +3,21 @@
 <p>繰り返し練習したい文字を一覧で表示できます</p>
 
 <% @favorites.each do |favorite| %>
+  <% if favorite.user_id == current_user.id %>
     <li class="list-unstyled">
         <%= link_to new_sample_practice_path(favorite.letter.id), data: {"turbolinks"=>false}, class: "border-bottom", style: "color: gray;" do %>
                      <%= favorite.letter.name %>
                      <!--お気に入り機能-->
                      <% if current_user.favorite_find(favorite.letter.id) %>
                         <%= link_to destroy_favorite_path(favorite.letter.id), method: :delete do %>
-                          <i class="fa-regular fa-heart" style="color: #ecacac;"></i>
+                          <i class="fa-solid fa-heart" style="color: #ecacac;"></i>
                         <% end %>
                       <% else %>
                         <%= link_to create_favorite_path(favorite.letter.id), method: :post do %>
-                          <i class="fa-solid fa-heart" style="color: #ecacac;"></i>
+                          <i class="fa-regular fa-heart" style="color: #ecacac;"></i>
                         <% end %>
                       <% end %>
                 <% end %>
     </li>
+  <% end %>
 <% end %>

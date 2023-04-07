@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <h1>文字ジャンル詳細</h1>
+    <h1><%= @genre.name %>一覧</h1>
   </div>
   <div class="row">
     <div>
-    <h5><%= @genre.name %></h5>
+      <p>練習したい文字を選んでください。<p>
             <% @letters.each do |letter| %>
               <!--[if]フォーム入力文字の場合、自分が入力したものだけを保存する。-->
               <% if letter.genre_id != 8 || letter.user_id == current_user.id %>
@@ -14,20 +14,25 @@
                          <!--お気に入り機能-->
                          <% if current_user.favorite_find(letter.id) %>
                             <%= link_to destroy_favorite_path(letter.id), method: :delete do %>
-                              <i class="fa-regular fa-heart" style="color: #ecacac;"></i>
+                              <i class="fa-solid fa-heart" style="color: #ecacac;"></i>
                             <% end %>
                           <% else %>
                             <%= link_to create_favorite_path(letter.id), method: :post do %>
-                              <i class="fa-solid fa-heart" style="color: #ecacac;"></i>
+                              <i class="fa-regular fa-heart" style="color: #ecacac;"></i>
                             <% end %>
+                          <% end %>
+                          <!--過去フォーム入力文字削除機能-->
+                          <% if letter.user_id == current_user.id %>
+                            <%= link_to "削除" ,sample_path(letter.id), method: :delete, class: "btn btn-sm" %>
                           <% end %>
                     <% end %>
                   </li>
               <% end %>
-
             <% end %>
 
-
+            <% if @genre.id == 8 && current_user.email == 'guest@example.com' %>
+              <p>ゲストユーザーは過去のフォーム入力文字をご覧いただけません。</p>
+            <% end %>
     </div>
   </div>
 </div>

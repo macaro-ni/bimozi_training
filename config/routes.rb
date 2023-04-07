@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     post "letters/:id/post_image" => "practices#image", as: "image"
 
     #その他
-    resources :samples , only: [:index, :show,:create] do
+    resources :samples , only: [:index, :show,:create,:destroy] do
       resources :practices, only: [:new]
     end
 

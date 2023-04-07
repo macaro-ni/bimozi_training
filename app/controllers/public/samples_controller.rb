@@ -1,5 +1,7 @@
 class Public::SamplesController < ApplicationController
 
+
+
  def index
    @genres=Genre.all
    @letter=Letter.new
@@ -24,8 +26,18 @@ class Public::SamplesController < ApplicationController
       entered_letter.save
       redirect_to new_sample_practice_path(entered_letter.id)
     end
-
   end
+
+  def destroy
+   letter=Letter.find(params[:id])
+   if letter.user_id == current_user.id
+     letter.destroy
+     redirect_to sample_path(letter.genre_id)
+   end
+  end
+
+
+
 
  private
   def entered_letter_params
