@@ -16,7 +16,7 @@
         </div>
 
         <div class="form-label">
-        <h5>入力した文字を練習する</h5>
+        <h5>-- 入力した文字を練習する --</h5>
           <p>長い文字の場合、15文字ごとに改行されます。</p>
           <%= form_with model: @letter ,url:samples_path do |f| %>
             <%= f.text_area :name, class: "form-control text-area", style: "width:280px" %>

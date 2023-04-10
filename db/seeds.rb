@@ -12,14 +12,14 @@ Genre.create!([
     {name: 'カタカナ'},
     {name: '漢字'},
     {name: '都道府県'},
+    {name: '年賀状'},
     {name: 'お祝い'},
     {name: 'お悔やみ'},
     {name: '例文集'},
     {name: 'フォーム入力文字'}
   ])
-  
+
   Admin.create!(
       email: 'admin@test',
       password: 'admintest'
       )
-  

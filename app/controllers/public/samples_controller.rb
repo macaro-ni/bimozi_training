@@ -17,7 +17,7 @@ class Public::SamplesController < ApplicationController
    entered_letter=Letter.new(entered_letter_params)
     ##追加した文字が既に登録済みかの判別
     same_letter=Letter.find_by(name: entered_letter.name)
-    if same_letter.present?
+    if same_letter.present? && same_letter.user_id == current_user.id
      ##登録済みの場合、同じ名前のものを取り出す
       redirect_to new_sample_practice_path(same_letter.id)
     else

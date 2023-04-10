@@ -39,6 +39,7 @@ CS
                   <li class="nav-item"><%= link_to "お手本ジャンル一覧", admin_letters_path, class:'nav-link text-dark btn btn-light' %></li>
                   <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:'nav-link text-dark btn btn-light' %></li>
                 <% elsif user_signed_in? %>
+                  <li class="nav-item"><%= link_to "サイトについて", about_path, class:'nav-link text-dark btn btn-light' %></li>
                   <li class="nav-item"><%= link_to "マイページ",users_my_page_path, class:'nav-link text-dark btn btn-light' %></li>
                   <li class="nav-item"><%= link_to "お手本を選ぶ", samples_path, class:'nav-link text-dark btn btn-light' %></li>
                   <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'nav-link text-dark btn btn-light' %></li>
