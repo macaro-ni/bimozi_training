@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
+
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -24,14 +25,14 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-  
+
   #ゲストログイン機能のため追加
   def guest_sign_in
     user = User.guest
     sign_in user
     redirect_to samples_path, notice: 'ゲストユーザーとしてログインしました。'
   end
-  
+
     protected
   # 退会しているかを判断するメソッド
   def user_state
@@ -44,6 +45,6 @@ class Public::SessionsController < Devise::SessionsController
       redirect_to new_user_registration_path
     end
   end
-  
-  
+
+
 end

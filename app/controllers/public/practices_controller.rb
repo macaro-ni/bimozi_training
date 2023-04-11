@@ -1,4 +1,5 @@
 class Public::PracticesController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @letter =  Letter.find(params[:sample_id])

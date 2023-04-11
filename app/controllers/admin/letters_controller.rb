@@ -1,4 +1,6 @@
 class Admin::LettersController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @letter=Letter.new
     @genres=Genre.all

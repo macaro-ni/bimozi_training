@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Public::UnlocksController < Devise::UnlocksController
+  before_action :authenticate_user!
   # GET /resource/unlock/new
   # def new
   #   super

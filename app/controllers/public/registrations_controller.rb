@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Public::RegistrationsController < Devise::RegistrationsController
+  before_action :authenticate_user!
 
   #ゲストユーザーの削除防止のため
   before_action :ensure_normal_user, only: :destroy

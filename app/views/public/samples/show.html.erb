@@ -6,8 +6,8 @@
     <div>
       <p>練習したい文字を選んでください。<p>
             <% @letters.each do |letter| %>
-              <!--[if]フォーム入力文字の場合、自分が入力したものだけを保存する。-->
-              <% if letter.genre_id != 8 || letter.user_id == current_user.id %>
+              <!--[if]フォーム入力文字(id=20)の場合、自分が入力したものだけを保存する。-->
+              <% if letter.genre_id != 20 || letter.user_id == current_user.id %>
                  <li class="list-unstyled">
                    <%= link_to new_sample_practice_path(letter.id), data: {"turbolinks"=>false}, class: "border-bottom", style: "color: gray;" do %>
                          <%= letter.name %>
@@ -30,7 +30,7 @@
               <% end %>
             <% end %>
 
-            <% if @genre.id == 8 && current_user.email == 'guest@example.com' %>
+            <% if @genre.id == 20 && current_user.email == 'guest@example.com' %>
               <p>ゲストユーザーは過去のフォーム入力文字をご覧いただけません。</p>
             <% end %>
     </div>
