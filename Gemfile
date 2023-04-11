@@ -58,3 +58,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 # 検索機能のgem追加
 gem 'ransack'
+# seedデータの管理のため
+gem 'seed-fu'

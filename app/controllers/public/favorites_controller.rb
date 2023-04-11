@@ -1,7 +1,7 @@
 class Public::FavoritesController < ApplicationController
   def index
     @favorites=Favorite.all
-  end
+  endcd
 
 
   def create
