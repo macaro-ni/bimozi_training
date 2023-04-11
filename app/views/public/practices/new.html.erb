@@ -11,24 +11,26 @@
 
     <!--canvasの背景設定時に追加-->
     「
-    <span id="sample-text" >
-      <!--< %= @letter.name %>-->
-      <% if @letter.name.length >= 15 %>
-        <% num=0 %>
-        <% while num <= @letter.name.length do %>
-          <% letter15 = @letter.name[num,num+15] %>
-          <%= letter15 %>
-            <% if num >= @letter.name.length %>
-              <% break %>
-            <% end %>
-          </br>
-          <% num += 15 %>
-        <% end %>
-      <% else %>
-        <%=safe_join(@letter.name.split("\n"),tag(:br))%>
+     
+      <span id="sample-text">
+  <% if @letter.name.length >= 15 %>
+    <% num = 0 %>
+    <% while num <= @letter.name.length do %>
+      <% letter15 = @letter.name[num, 15] %>
+      <%= letter15 %>
+      <% num += 15 %>
+      <% if @letter.name.length >= num %>
+        </br>
       <% end %>
-    </span>
+    <% end %>
+    
+  <% else %>
+      <%= safe_join(@letter.name.split("\n"), tag(:br)) %>
+
+  <% end %>
+</span>
       」
+ 
 
 </div>
 
