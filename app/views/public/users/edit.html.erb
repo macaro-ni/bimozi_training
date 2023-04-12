@@ -1,13 +1,14 @@
 <h1>会員情報編集</h1>
-
+<br>
 <% if @user.email == 'guest@example.com'%>
       <p>ゲストユーザーはユーザー情報の編集ができません。</p>
 <% else %>
 
     <%= form_with model: @user ,url: users_information_path ,method: :patch do |f| %>
 
+    <div class="border p-5 col-md-8">
+      <table class="table table-sm table-borderless">
 
-     <table class="table table-borderless">
         <tr>
           <td>メールアドレス</td>
           <td><%= f.text_field :email, autofocus: true %></td>
