@@ -11,7 +11,7 @@
 
     <!--canvasの背景設定時に追加-->
     「
-     
+
       <span id="sample-text">
   <% if @letter.name.length >= 15 %>
     <% num = 0 %>
@@ -23,14 +23,14 @@
         </br>
       <% end %>
     <% end %>
-    
+
   <% else %>
       <%= safe_join(@letter.name.split("\n"), tag(:br)) %>
 
   <% end %>
 </span>
       」
- 
+
 
 </div>
 
@@ -41,6 +41,7 @@
         <label for="draw">消しゴム</label>
         <!--<button onclick="canvas.clear().renderAll()", class: "btn btn-sm">全て削除</button>-->
     </div>
+
     <div>
         <% if current_user.email == 'guest@example.com' %>
           [会員の方は練習の記録ができます。]
@@ -53,6 +54,7 @@
 
     <!-- お絵描きエリアの設定 -->
     <canvas id="canvas" height="500" width="1000" style="border-style: solid; border-color: black;"> </canvas>
+
 
     <!-- Fabric.jsの読み込み -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
@@ -77,6 +79,24 @@
       canvas.freeDrawingBrush.color="white";
       canvas.isDrawingMode = true;
     });
+
+    // canvas背景に枠線画像追加（ここから）
+    const backgroundImage = new Image();
+
+    backgroundImage.onload = function() {
+    canvas.setBackgroundImage(backgroundImage.src, canvas.renderAll.bind(canvas), {
+      //( scaleX と scaleY に元画像のサイズとキャンバスのサイズの比率をかけることで、適切なサイズに変更できる。)
+      // (left と top の値を変更することで、画像をずらすことができる。)
+      top: 0,
+      left: 0,
+      scaleX: canvas.width / backgroundImage.width * 1.0,
+      scaleY: canvas.height / backgroundImage.height * 1.0
+
+      });
+    };
+
+    backgroundImage.src = "https://drive.google.com/uc?export=view&id=1WujebxLnTcOmwLu2YzYvVsW64nSk9MkV";
+    // canvas背景に枠線画像追加（ここまで）
 
 
 // ※以下はcanvas背景に文字を入れるための追記
@@ -132,7 +152,7 @@
     // テキストを取得して、canvasに描画する
     const text = document.getElementById("sample-text").innerText;
     const textObject = new fabric.Text(text, {
-      left: 20,
+      left: 50,
       top: 20,
       fill: "#dcdcdc",
       fontFamily: "Klee One",
