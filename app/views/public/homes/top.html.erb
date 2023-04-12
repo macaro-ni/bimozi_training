@@ -1,3 +1,28 @@
-<h1>美文字練習帳　トップページ</h1>
+<div class="container">
 
-<p>美しい文字で　日々をちょっぴり華やかにしませんか？</p>
+  <div class="row">
+    <h1>美文字練習帳　TOP</h1>
+  </div>
+
+  <div class="row">
+    <p>美しい文字で　日々をちょっぴり華やかにしませんか？</p>
+  </div>
+
+  <div class="row">
+      <ul class="list-unstyled">
+        <li>
+          <%= link_to "サイトについて", about_path, class: "border-bottom", style: "color: gray;" %>
+        </li>
+        <li>
+          <%= link_to "新規登録", new_user_registration_path, class: "border-bottom", style: "color: gray;" %>
+        </li>
+        <li>
+          <%= link_to "ログイン", new_user_session_path, class: "border-bottom", style: "color: gray;" %>
+        </li>
+        <li>
+          <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "border-bottom", style: "color: gray;" %></li>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
