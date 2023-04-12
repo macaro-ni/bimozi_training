@@ -7,7 +7,7 @@
 <div>
 
 <!--railsの要素を入れたら描画できなくなったが、divで囲ったら解決した-->
-    <h1>文字練習</h1>
+    <h1 class="m-3">文字練習</h1>
 
     <!--canvasの背景設定時に追加-->
     「
@@ -44,7 +44,7 @@
 
     <div>
         <% if current_user.email == 'guest@example.com' %>
-          [会員の方は練習の記録ができます。]
+          <p>[会員の方は練習の記録ができます。]</p>
         <% else %>
           <input type="button" id="downloadPng" value="保存" class="btn btn-sm" >
         <% end %>

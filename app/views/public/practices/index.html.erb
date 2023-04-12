@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="row">
+  <div class="row m-3">
     <h1>練習の記録</h1>
 
         <!--検索フォーム-->
@@ -13,9 +13,9 @@
 
 
 
-      <div class="row d-flex flex-wrap">
+      <div class="row d-flex flex-wrap bg-light p-3">
         <% @practice_records.each do |practice_record| %>
-        <table class="table m-1 table-borderless record-table">
+        <table class="table m-1 table-borderless border record-table">
 
           <tr>
             <td class="p-0"><% if practice_record.image.attached? %>
