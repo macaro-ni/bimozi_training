@@ -37,8 +37,8 @@
     <div>
         <input type="radio" id="draw" name="mode">
         <label for="draw">ペン</label>
-        <input type="radio" id="erase" name="mode">
-        <label for="draw">消しゴム</label>
+        <!--<input type="radio" id="erase" name="mode">-->
+        <!--<label for="draw">消しゴム</label>-->
         <!--<button onclick="canvas.clear().renderAll()", class: "btn btn-sm">全て削除</button>-->
     </div>
 
@@ -70,15 +70,15 @@
         canvas.isDrawingMode = true;
     });
 
-    // 消しゴム機能
-        // canvas.backgroundColor="white";
+    // // 消しゴム機能（消しゴムで背景やお手本も消えてしまうのでコメントアウト）
+    //     // canvas.backgroundColor="white";
 
-    document.getElementById("erase").addEventListener("click", function () {
-      canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
-      canvas.freeDrawingBrush.width=10;
-      canvas.freeDrawingBrush.color="white";
-      canvas.isDrawingMode = true;
-    });
+    // document.getElementById("erase").addEventListener("click", function () {
+    //   canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
+    //   canvas.freeDrawingBrush.width=10;
+    //   canvas.freeDrawingBrush.color="white";
+    //   canvas.isDrawingMode = true;
+    // });
 
     // canvas背景に枠線画像追加（ここから）
         // 画像を読み込むためのImageオブジェクトを作成
