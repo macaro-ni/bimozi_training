@@ -4,32 +4,38 @@ Letter.seed(
   {
     id:1,
     genre_id: 1,
-    name: 'あ'
+    name: 'あ',
+    user_id: 0
   },
   {
     id: 2,
     genre_id: 1,
-    name: 'い'
+    name: 'い',
+    user_id: 0
   },
   {
     id: 3,
     genre_id: 1,
-    name: 'う'
+    name: 'う',
+    user_id: 0
   },
   {
     id: 4,
     genre_id: 1,
-    name: 'え'
+    name: 'え',
+    user_id: 0
   },
   {
     id: 5,
     genre_id: 1,
-    name: 'お'
+    name: 'お',
+    user_id: 0
   },
   {
     id: 6,
     genre_id: 1,
-    name: 'か'
+    name: 'か',
+    user_id: 0
   }
 
   )
