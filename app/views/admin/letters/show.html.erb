@@ -1,8 +1,7 @@
-<h1>お手本文字ジャンル詳細</h1>
+    <h1><%= @genre.name %>一覧</h1>
 
-<h5>文字ジャンル：<%= @genre.name %></h5>
-<% @letters.each do |letter| %>
-   <li><%= letter.name %></li>
-   <%= link_to "編集", edit_admin_letter_path(letter.id) %>
-  <%= link_to "削除", admin_letter_path(letter.id) , method: :delete, data: {confirm: "削除しますか？"} %>
-<% end %>
+      <% @letters.each do |letter| %>
+         <li><%= letter.name %></li>
+         <%= link_to "編集", edit_admin_letter_path(letter.id) %>
+        <%= link_to "削除", admin_letter_path(letter.id) , method: :delete, data: {confirm: "削除しますか？"} %>
+      <% end %>

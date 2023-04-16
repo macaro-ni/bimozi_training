@@ -12,18 +12,30 @@
 
   <div class="row d-flex align-items-center justify-content-center border">
       <ul class="list-unstyled">
-        <li>
-          <%= link_to "サイトについて", about_path, class: "border-bottom", style: "color: gray;" %>
-        </li>
-        <li>
-          <%= link_to "新規登録", new_user_registration_path, class: "border-bottom", style: "color: gray;" %>
-        </li>
-        <li>
-          <%= link_to "ログイン", new_user_session_path, class: "border-bottom", style: "color: gray;" %>
-        </li>
-        <li>
-          <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "border-bottom", style: "color: gray;" %></li>
-        </li>
+        <% if user_signed_in? %>
+          <li><%= link_to "TOP", root_path, class: "border-bottom", style: "color: gray;" %></li>
+          <li><%= link_to "サイトについて", about_path, class: "border-bottom", style: "color: gray;" %></li>
+          <li><%= link_to "マイページ",users_my_page_path, class: "border-bottom", style: "color: gray;" %>
+              <br>
+              -名前・住所を登録すると、「年賀状」ジャンルから繰り返し練習できます。<br>
+              -お気に入り、練習の記録もこちらから。</li>
+          <li><%= link_to "お手本を選ぶ", samples_path, class: "border-bottom", style: "color: gray;" %>
+              <br>
+              -お手本文字を選びましょう。自分で入力することもできます。</li>
+        <% else %>
+          <li>
+            <%= link_to "サイトについて", about_path, class: "border-bottom", style: "color: gray;" %>
+          </li>
+          <li>
+            <%= link_to "新規登録", new_user_registration_path, class: "border-bottom", style: "color: gray;" %>
+          </li>
+          <li>
+            <%= link_to "ログイン", new_user_session_path, class: "border-bottom", style: "color: gray;" %>
+          </li>
+          <li>
+            <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "border-bottom", style: "color: gray;" %></li>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

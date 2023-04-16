@@ -36,20 +36,20 @@
               <ul class="navbar-nav ml-auto">
 
                 <% if admin_signed_in? %>
-                  <li class="nav-item"><%= link_to "お手本ジャンル一覧", admin_letters_path, class:'nav-link text-dark btn btn-light' %></li>
+                  <li class="nav-item"><%= link_to "文字ジャンル一覧&登録", admin_letters_path, class:'nav-link text-dark btn btn-light' %></li>
                   <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:'nav-link text-dark btn btn-light' %></li>
                 <% elsif user_signed_in? %>
+                  <li class="nav-item"><%= link_to "TOP", root_path, class:'nav-link text-dark btn btn-light' %></li>
                   <li class="nav-item"><%= link_to "サイトについて", about_path, class:'nav-link text-dark btn btn-light' %></li>
                   <li class="nav-item"><%= link_to "マイページ",users_my_page_path, class:'nav-link text-dark btn btn-light' %></li>
                   <li class="nav-item"><%= link_to "お手本を選ぶ", samples_path, class:'nav-link text-dark btn btn-light' %></li>
                   <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'nav-link text-dark btn btn-light' %></li>
                 <% else %>
                   <li class="nav-item">
-                    <%= link_to "新規登録", new_user_registration_path, class:'nav-link text-dark btn btn-light' %>
-                  </li>
+                  <li class="nav-item"><%= link_to "TOP", root_path, class:'nav-link text-dark btn btn-light' %></li>
+                    <%= link_to "新規登録", new_user_registration_path, class:'nav-link text-dark btn btn-light' %></li>
                   <li class="nav-item">
-                    <%= link_to "ログイン", new_user_session_path, class:'nav-link text-dark btn btn-light' %>
-                  </li>
+                    <%= link_to "ログイン", new_user_session_path, class:'nav-link text-dark btn btn-light' %></li>
                   <li class="nav-item"><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class:'nav-link text-dark btn btn-light' %></li>
                 <% end %>
                  </ul>

@@ -2,6 +2,11 @@
 
 class Admin::SessionsController < Devise::SessionsController
 
+  private
+    def after_sign_in_path_for(resource)
+        admin_letters_path(resource)
+    end
+
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
