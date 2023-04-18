@@ -19,7 +19,7 @@ class Public::SamplesController < ApplicationController
     ##追加した文字が既に登録済みかの判別
     same_letter=Letter.find_by(name: entered_letter.name)
     if same_letter.present? && same_letter.user_id == current_user.id
-     ##登録済みの場合、同じ名前のものを取り出す
+     ##current_userが同じ文字を以前に登録済みの場合、同じ名前のものを取り出す
       redirect_to new_sample_practice_path(same_letter.id)
     else
       ##未登録の場合、save

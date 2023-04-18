@@ -4,12 +4,38 @@
   </div>
   <div class="row">
     <div>
-      <p>練習したい文字を選んでください。<br>
-      [会員登録すると文字のお気に入り登録ができます。]<p>
+      <p>練習したい文字を選んでください。<p>
+      <% if current_user.email != 'guest@example.com' %>
+        <p>[会員登録すると文字のお気に入り登録ができます。]</p>
+      <% end %>
             <% @letters.each do |letter| %>
-              <!--[if]フォーム入力文字(id=20)の場合、自分が入力したものだけを保存する。-->
-              <% if letter.genre_id != 20 && letter.user_id != current_user.id %>
+              <!--[if]フォーム入力文字(id=20)以外のジャンルの場合、全てのジャンル内文字を表示-->
+              <% if letter.genre_id != 20 %>
                  <li class="list-unstyled">
+                   <%= link_to new_sample_practice_path(letter.id), data: {"turbolinks"=>false}, class: "border-bottom", style: "color: gray;" do %>
+                         <%= letter.name %>
+                         <!--お気に入り機能-->
+                           <% if current_user.email != 'guest@example.com' %>
+                             <% if current_user.favorite_find(letter.id) %>
+                                <%= link_to destroy_favorite_path(letter.id), method: :delete do %>
+                                  <i class="fa-solid fa-heart" style="color: #ecacac;"></i>
+                                <% end %>
+                              <% else %>
+                                <%= link_to create_favorite_path(letter.id), method: :post do %>
+                                  <i class="fa-regular fa-heart" style="color: #ecacac;"></i>
+                                <% end %>
+                              <% end %>
+                            <% end %>
+                          <!--過去フォーム入力文字削除機能-->
+                          <% if letter.user_id == current_user.id %>
+                            <%= link_to "削除" ,sample_path(letter.id), method: :delete, class: "btn btn-sm" %>
+                          <% end %>
+                    <% end %>
+                  </li>
+              <!--[els]フォーム入力文字（id=20）の場合、[if]ゲストユーザー以外には自分が入力した文字だけ表示-->
+              <% elsif current_user.email != 'guest@example.com' && letter.user_id == current_user.id %>
+                  <!--liの中は上と同じ-->
+                  <li class="list-unstyled">
                    <%= link_to new_sample_practice_path(letter.id), data: {"turbolinks"=>false}, class: "border-bottom", style: "color: gray;" do %>
                          <%= letter.name %>
                          <!--お気に入り機能-->
