@@ -12,52 +12,55 @@
   <div class="border-top border-bottom col-md-4">
 
 
-  <span id="sample-text">
-  <% lines = @letter.name.split("\n") %>
-  <!--改行している場合-->
-  <% if lines.length > 1 %>
-    <% lines.each do |line| %>
-      <!--lineの長さが15文字以上か？-->
-      <% if line.length >= 15 %>
-        <% num = 0 %>
-        <% while num <= line.length do %>
-          <% letter15 = line[num, 15] %>
-          <%= letter15 %>
-          <br>
-          <% num += 15 %>
+        <span id="sample-text">
+        <% lines = @letter.name.split("\n") %>
+        <!--改行している場合-->
+        <% if lines.length > 1 %>
+          <% lines.each do |line| %>
+            <!--lineの長さが15文字以上か？-->
+            <% if line.length >= 15 %>
+              <% num = 0 %>
+              <% while num <= line.length do %>
+                <% letter15 = line[num, 15] %>
+                <%= letter15 %>
+                <br>
+                <% num += 15 %>
+              <% end %>
+            <!--15文字未満の場合 -->
+            <% else %>
+              <%= line %>
+              <br>
+            <% end %>
+          <% end %>
+        <!--改行せずに15文字未満の文字列を入力した場合-->
+        <% else %>
+          <% if @letter.name.length >= 15 %>
+            <% num = 0 %>
+            <% while num <= @letter.name.length do %>
+              <% letter15 = @letter.name[num, 15] %>
+              <%= letter15 %>
+              <br>
+              <% num += 15 %>
+            <% end %>
+          <% else %>
+            <%= @letter.name %>
+            <br>
+          <% end %>
         <% end %>
-      <!--15文字未満の場合 -->
-      <% else %>
-        <%= line %>
-        <br>
-      <% end %>
-    <% end %>
-  <!--改行せずに15文字未満の文字列を入力した場合-->
-  <% else %>
-    <% if @letter.name.length >= 15 %>
-      <% num = 0 %>
-      <% while num <= @letter.name.length do %>
-        <% letter15 = @letter.name[num, 15] %>
-        <%= letter15 %>
-        <br>
-        <% num += 15 %>
-      <% end %>
-    <% else %>
-      <%= @letter.name %>
-      <br>
-    <% end %>
-  <% end %>
-</span>
-</div>
+      </span>
+  </div>
 
 </div>
 
     <div>
         <input type="radio" id="draw" name="mode">
         <label for="draw">ペン</label>
-        <input type="radio" id="erase" name="mode">
-        <label for="draw">消しゴム</label>
+        <!--<input type="radio" id="erase" name="mode">-->
+        <!--<label for="draw">消しゴム</label>-->
         <!--<button onclick="canvas.clear().renderAll()", class: "btn btn-sm">全て削除</button>-->
+
+        　<!--「data: {"turbolinks" => false} 」を入れることで背景は消えないようになった-->
+        <%= link_to "一括削除" ,new_sample_practice_path(@letter.id), data: {"turbolinks" => false}, class: "btn" %>
     </div>
 
     <div>
@@ -73,7 +76,6 @@
     <!-- お絵描きエリアの設定 -->
     <canvas id="canvas" height="500" width="1000" style="border-style: solid; border-color: black;"> </canvas>
 
-
     <!-- Fabric.jsの読み込み -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
 
@@ -83,20 +85,22 @@
 
     document.getElementById("draw").addEventListener("click", function () {
         canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
-        canvas.freeDrawingBrush.width=5;
+        canvas.freeDrawingBrush.width=4;
         canvas.freeDrawingBrush.color="black";
         canvas.isDrawingMode = true;
+        // カーソルを変えたかったがわからずコメントアウト
+        canvas.freeDrawingCursor ="url(circle-2.svg)";
     });
 
     // 消しゴム機能
         // canvas.backgroundColor="white";
 
-    document.getElementById("erase").addEventListener("click", function () {
-      canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
-      canvas.freeDrawingBrush.width=10;
-      canvas.freeDrawingBrush.color="white";
-      canvas.isDrawingMode = true;
-    });
+    // document.getElementById("erase").addEventListener("click", function () {
+    //   canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
+    //   canvas.freeDrawingBrush.width=10;
+    //   canvas.freeDrawingBrush.color="white";
+    //   canvas.isDrawingMode = true;
+    // });
 
     // canvas背景に枠線画像追加（ここから）
         // 画像を読み込むためのImageオブジェクトを作成
