@@ -11,6 +11,7 @@
     <!--canvasの背景設定時に追加-->
   <div class="border col-md-4">
 
+
   <span id="sample-text">
   <% lines = @letter.name.split("\n") %>
   <!--改行している場合-->
@@ -61,7 +62,7 @@
 
     <div>
         <% if current_user.email == 'guest@example.com' %>
-          <p>[会員の方は練習の記録ができます。]</p>
+          <p>[会員登録すると練習の記録ができます。]</p>
         <% else %>
           <input type="button" id="downloadPng" value="保存" class="btn btn-sm" >
         <% end %>

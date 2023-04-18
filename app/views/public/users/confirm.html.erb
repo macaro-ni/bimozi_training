@@ -1,0 +1,15 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 m-5">
+
+      <h5>本当に退会しますか？</h5>
+      <p>退会すると、これまでのお気に入りや練習の記録が閲覧できなくなります。<br>
+      退会する場合は、「退会する」をクリックしてください。</p>
+
+      <%= link_to "退会しない" , :back ,class: "btn btn-sm" %>
+      <%= link_to "退会する" , users_withdraw_path , method: :patch, data: { confirm: "本当に退会しますか？" } ,class: "btn btn-sm" %>
+
+    </div>
+  </div>
+</div>

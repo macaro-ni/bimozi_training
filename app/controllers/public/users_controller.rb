@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
-  
+
   def show
     @user=current_user
 
@@ -12,10 +12,22 @@ class Public::UsersController < ApplicationController
 
   def update
     @user=current_user
-    @user.update(user_params)
+    @user.update!(user_params)
     redirect_to users_my_page_path
   end
 
+  def confirm
+
+  end
+
+  def withdrawal
+      @user = current_user
+      # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+      @user.update(is_deleted: true)
+      reset_session
+      flash[:notice] = "退会処理を実行いたしました"
+      redirect_to root_path
+  end
 
 
 
