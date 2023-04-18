@@ -26,7 +26,9 @@
       <header class="shadow-sm">
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container">
-            <span class="web-font border border-secondary p-2">美文字練習帳</span>
+            <span class="web-font border border-secondary p-2">
+              <%= link_to "美文字練習帳", root_path, class:'text-dark', style: "text-decoration: none;" %>
+            </span>
             <!--<a class="navbar-brand p-3" href="/">< %= image_tag('logo.jpg' , size: '120x90') %></a>-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,14 +41,36 @@
                   <li class="nav-item"><%= link_to "文字ジャンル一覧&登録", admin_letters_path, class:'nav-link text-dark btn btn-light' %></li>
                   <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:'nav-link text-dark btn btn-light' %></li>
                 <% elsif user_signed_in? %>
-                  <li class="nav-item"><%= link_to "Top", root_path, class:'nav-link text-dark btn btn-light' %></li>
-                  <li class="nav-item"><%= link_to "About", about_path, class:'nav-link text-dark btn btn-light' %></li>
-                  <li class="nav-item"><%= link_to "マイページ",users_my_page_path, class:'nav-link text-dark btn btn-light' %></li>
-                  <li class="nav-item"><%= link_to "お手本を選ぶ", samples_path, class:'nav-link text-dark btn btn-light' %></li>
-                  <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'nav-link text-dark btn btn-light' %></li>
+
+                    <li class="nav-item"><%= link_to "About", about_path, class:'nav-link text-dark btn btn-light' %></li>
+                    <li class="nav-item"><%= link_to "お手本を選ぶ", samples_path, class:'nav-link text-dark btn btn-light' %></li>
+
+                  <% if current_user.email != 'guest@example.com' %>
+
+                      <li class="nav-item">
+                        <%= link_to users_my_page_path, class:'nav-link text-dark btn btn-light' do %>
+                          マイページ
+                        <% end %>
+                      </li>
+                      <li class="nav-item">
+                        <%= link_to favorites_path, class:'nav-link text-dark' do %>
+                          <i class="fa-solid fa-heart" style="color: #adadad;"></i>
+                        <% end %>
+                      </li>
+                      <li class="nav-item">
+                        <%= link_to practices_path, class:'nav-link text-dark' do %>
+                          <i class="fa-solid fa-book-open-reader" style="color: #adadad;"></i>
+                        <% end %>
+                      </li>
+
+                  <% end %>
+
+                    <li class="nav-item">
+                      <%= link_to destroy_user_session_path, method: :delete, class:'nav-link text-dark' do %>
+                      <i class="fa-solid fa-arrow-right-from-bracket" style="color: #adadad;"></i>
+                      <% end %></li>
                 <% else %>
                   <li class="nav-item">
-                  <li class="nav-item"><%= link_to "Top", root_path, class:'nav-link text-dark btn btn-light' %></li>
                   <li class="nav-item"><%= link_to "About", about_path, class:'nav-link text-dark btn btn-light' %></li>
                     <%= link_to "新規登録", new_user_registration_path, class:'nav-link text-dark btn btn-light' %></li>
                   <li class="nav-item">

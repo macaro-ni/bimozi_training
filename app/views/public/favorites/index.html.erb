@@ -1,6 +1,7 @@
 <h1 class="m-3">お気に入り</h1>
 
-<p>繰り返し練習したい文字を一覧で表示できます</p>
+<p>繰り返し練習したい文字をお気に入りに追加しておくと便利です。<br>
+ハートボタンをタッチするとお気に入りから削除されます。</p>
 
 <% @favorites.each do |favorite| %>
   <% if favorite.user_id == current_user.id %>
