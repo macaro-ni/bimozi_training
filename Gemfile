@@ -56,7 +56,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #追加
 gem 'devise'
-# 検索機能のgem追加
+# 検索機能のgem追加（結局使わずに実装した）
 gem 'ransack'
 # seedデータの管理のため
 gem 'seed-fu'
+# ページネーションのため
+gem 'kaminari','~> 1.2.1'

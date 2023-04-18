@@ -6,7 +6,7 @@ class Public::PracticesController < ApplicationController
   end
 
   def index
-    @practice_records = current_user.practice_records
+    @practice_records = current_user.practice_records.page(params[:page])
     if params[:name].present?
       @practice_records = current_user.practice_records.left_joins(:letter).where('letters.name LIKE ?', "%#{params[:name]}%")
     end

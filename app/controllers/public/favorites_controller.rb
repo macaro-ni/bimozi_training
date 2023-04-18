@@ -2,7 +2,7 @@ class Public::FavoritesController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @favorites=Favorite.all
+    @favorites=Favorite.page(params[:page])
   end
 
 
