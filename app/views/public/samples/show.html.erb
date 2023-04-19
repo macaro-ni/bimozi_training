@@ -9,6 +9,7 @@
         <p>[会員登録すると文字のお気に入り登録ができます。]</p>
       <% end %>
             <% @letters.each do |letter| %>
+            <ul style="column-count: 2;">
               <!--[if]フォーム入力文字(id=20)以外のジャンルの場合、全てのジャンル内文字を表示-->
               <% if letter.genre_id != 20 %>
                  <li class="list-unstyled">
@@ -57,6 +58,7 @@
                     <% end %>
                   </li>
               <% end %>
+            </ul>
             <% end %>
 
             <% if @genre.id == 20 && current_user.email == 'guest@example.com' %>
