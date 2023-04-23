@@ -5,9 +5,23 @@
   <div class="row">
     <div>
       <p>練習したい文字を選んでください。<p>
-      <% if current_user.email != 'guest@example.com' %>
+      <% if current_user.email == 'guest@example.com' %>
         <p>[会員登録すると文字のお気に入り登録ができます。]</p>
       <% end %>
+            <!--genre5（名前住所練習）の場合-->
+              <% if @genre.id == 5 %>
+                <% form_with model: @letter do |f| %>
+                <ul class="list-unstyled">
+                  <li>
+                    <%= f.hidden_field :name, :value =>@user.first_name + " " + @user.last_name %>
+                    <%= f.hidden_field :genre_id, :value =>5 %>
+                    <%= link_to new_sample_practice_path(letter.id), data: {"turbolinks"=>false}, class: "border-bottom", style: "color: gray;" do %>
+                      <%= @user.first_name + " " + @user.last_name %>
+                    <% end %></li>
+                  <li><%= @user.address %></li>
+                </ul>
+                <% end %>
+              <% end %>
             <% @letters.each do |letter| %>
             <ul style="column-count: 2;">
               <!--[if]フォーム入力文字(id=20)以外のジャンルの場合、全てのジャンル内文字を表示-->
