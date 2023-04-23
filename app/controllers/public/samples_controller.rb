@@ -13,7 +13,7 @@ class Public::SamplesController < ApplicationController
     @letters=Letter.where(genre_id: @genre.id)
     # 以下はgenre5の場合使用
     @user=User.find(current_user.id)
-    @letter.new
+    @letter=Letter.new
   end
 
   def create

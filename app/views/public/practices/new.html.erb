@@ -72,12 +72,17 @@
     </div>
     <br>
 
+    <style>
+      html, body {
+        /*cursor: url(<%= asset_path 'cursor.png' %>), auto;*/
+      }
+    </style>
 
     <!-- お絵描きエリアの設定 -->
     <canvas id="canvas" height="500" width="1000" style="border-style: solid; border-color: black;"> </canvas>
 
     <!-- Fabric.jsの読み込み -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
 
     <!--ペン機能-->
     <script>
@@ -85,11 +90,14 @@
 
     document.getElementById("draw").addEventListener("click", function () {
         canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
+        canvas.freeDrawingCursor = 'url(<%= asset_path 'cursor.png' %>) 5 5 , auto';
         canvas.freeDrawingBrush.width=4;
         canvas.freeDrawingBrush.color="black";
         canvas.isDrawingMode = true;
-        // カーソルを変えたかったがわからずコメントアウト
-        canvas.freeDrawingCursor ="url(circle-2.svg)";
+        // canvas.freeDrawingCursor = 'url(<%= asset_path 'circle-2.cur' %>), default';
+        // カーソルを変えたかったがわからず
+        // canvas.freeDrawingCursor = 'url(<%= asset_path 'circle-2.cur' %>), default';
+        // console.log(canvas.freeDrawingCursor)
     });
 
     // 消しゴム機能
