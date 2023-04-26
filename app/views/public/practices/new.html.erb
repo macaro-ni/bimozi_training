@@ -12,7 +12,7 @@
   <div class="border-top border-bottom col-md-4">
 
 
-        <span id="sample-text">
+        <span id="sample-text" >
         <% lines = @letter.name.split("\n") %>
         <!--改行している場合-->
         <% if lines.length > 1 %>
@@ -94,10 +94,7 @@
         canvas.freeDrawingBrush.width=4;
         canvas.freeDrawingBrush.color="black";
         canvas.isDrawingMode = true;
-        // canvas.freeDrawingCursor = 'url(<%= asset_path 'circle-2.cur' %>), default';
-        // カーソルを変えたかったがわからず
-        // canvas.freeDrawingCursor = 'url(<%= asset_path 'circle-2.cur' %>), default';
-        // console.log(canvas.freeDrawingCursor)
+
     });
 
     // 消しゴム機能
@@ -140,7 +137,6 @@
       fill: "#dcdcdc",
       fontFamily: "Klee One",
       fontSize: 60,
-
     });
     canvas.add(textObject);
 

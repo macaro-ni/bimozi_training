@@ -1,247 +1,85 @@
 # genre4都道府県
 Letter.seed(
   {
-    id: ,
+    id: 18,
     genre_id: 4,
-    name: 北海道,
+    name: '北海道 青森県　秋田県　岩手県',
+    user_id: 0
   },
 {
-    id: ,
+    id: 19,
     genre_id: 4,
-    name: 青森県,
+    name: '山形県　宮城県　福島県　新潟県',
+    user_id: 0
   },
 {
-    id: ,
+    id: 20,
     genre_id: 4,
-    name: 岩手県,
-  },
-
-{
-    id: ,
-    genre_id: 4,
-    name: 宮城県,
+    name: '富山県　石川県　福井県　長野県',
+    user_id: 0
   },
 
 {
-    id: ,
+    id: 21,
     genre_id: 4,
-    name: 秋田県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 山形県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 福島県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 茨城県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 栃木県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 群馬県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 埼玉県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 千葉県,
+    name: '群馬県　栃木県　茨城県　千葉県',
+    user_id: 0
   },
 
 {
-    id: ,
+    id: 22,
     genre_id: 4,
-    name: 東京都,
+    name: '埼玉県　東京都　神奈川県',
+    user_id: 0
   },
 {
-    id: ,
+    id: 23,
     genre_id: 4,
-    name: 神奈川県,
+    name: '山梨県　静岡県　愛知県　岐阜県',
+    user_id: 0
   },
 {
-    id: ,
+    id: 24,
     genre_id: 4,
-    name: 新潟県,
+    name: '三重県　滋賀県　京都府　大阪府',
+    user_id: 0
   },
 {
-    id: ,
+    id: 25,
     genre_id: 4,
-    name: 富山県,
-  },
-
-{
-    id: ,
-    genre_id: 4,
-    name: 石川県,
+    name: '奈良県　和歌山県　兵庫県',
+    user_id: 0
   },
 {
-    id: ,
+    id: 26,
     genre_id: 4,
-    name: 福井県,
+    name: '鳥取県　島根県　岡山県　広島県',
+    user_id: 0
   },
 {
-    id: ,
+    id: 27,
     genre_id: 4,
-    name: 山梨県,
+    name: '山口県　香川県　徳島県　高知県',
+    user_id: 0
   },
 {
-    id: ,
+    id: 28,
     genre_id: 4,
-    name: 長野県,
+    name: '愛媛県　福岡県　大分県　宮崎県',
+    user_id: 0
   },
 {
-    id: ,
+    id: 29,
     genre_id: 4,
-    name: 岐阜県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 静岡県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 愛知県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 三重県,
+    name: '熊本県　鹿児島県　佐賀県',
+    user_id: 0
   },
 
 {
-    id: ,
+    id: 30,
     genre_id: 4,
-    name: 滋賀県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 京都府,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 大阪府,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 兵庫県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 奈良県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 和歌山県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 鳥取県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 島根県,
-  },
-
-{
-    id: ,
-    genre_id: 4,
-    name: 岡山県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 広島県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 山口県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 徳島県,
-  },
-
-{
-    id: ,
-    genre_id: 4,
-    name: 香川県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 愛媛県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 高知県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 福岡県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 佐賀県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 長崎県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 熊本県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 大分県,
-  },
-
-{
-    id: ,
-    genre_id: 4,
-    name: 宮崎県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 鹿児島県,
-  },
-{
-    id: ,
-    genre_id: 4,
-    name: 沖縄県,
+    name: '長崎県　沖縄県',
+    user_id: 0
   },
 
 )
