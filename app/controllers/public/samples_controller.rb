@@ -12,8 +12,8 @@ class Public::SamplesController < ApplicationController
     @genre=Genre.find(params[:id])
     @letters=Letter.where(genre_id: @genre.id)
     # 以下はgenre5の場合使用
-    @user=User.find(current_user.id)
-    @letter=Letter.new
+    # @user=User.find(current_user.id)
+    # @letter=Letter.new
   end
 
   def create
