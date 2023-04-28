@@ -1,6 +1,7 @@
 Letter.seed(
   # 全部登録する時にidをつける（そうしないとrails db:seed_fuコマンドを実行するごとにデータが被る）
   # デプロイ後にletterを追加したいときは必ずフォームから行うこと（ユーザーのフォーム送信文字に干渉するため）
+  # 本番環境にseed_fuを反映させるコマンド「rails db:seed_fu RAILS_ENV=production」
   {
     id:1,
     genre_id: 1,

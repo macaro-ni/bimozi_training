@@ -20,7 +20,7 @@ end
 
 Genre.seed do |s|
   s.id=5
-  s.name='名前'
+  s.name='年賀状'
 end
 
 Genre.seed do |s|
