@@ -89,6 +89,8 @@
 
     <!--ペン機能-->
     <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      
     const canvas = new fabric.Canvas("canvas");
 
     document.getElementById("draw").addEventListener("click", function () {
@@ -191,8 +193,8 @@ document.getElementById("downloadPng").addEventListener("click", function () {
       byebug
       document.getElementById("newImg").src = png;
     }
-
-    </script>
+});
+</script>
     <textarea id="newImg" class="hidden_area"></textarea>
 
 

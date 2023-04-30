@@ -65,11 +65,15 @@ gem 'seed-fu'
 gem 'kaminari','~> 1.2.1'
 # MySQLを利用するために必要
 gem 'dotenv-rails'
+
+gem 'rack-cors'
+
 group :production do
 gem 'mysql2'
 
 gem "net-smtp"
 gem "net-pop"
 gem "net-imap"
+
 
 end
