@@ -167,8 +167,14 @@ document.getElementById("downloadPng").addEventListener("click", function () {
       window.location.href = "https://086192e85b094c90b02448a4e1eca7d4.vfs.cloud9.ap-northeast-1.amazonaws.com/practices";
        // textareaを空にする
     })
-    .fail(function() {
-      alert("error!");  // 通信に失敗した場合はアラートを表示
+    .fail(function(jqXHR, textStatus, errorThrown) {
+      // 通信失敗時の処理
+                    alert('ファイルの取得に失敗しました。');
+                    console.log("ajax通信に失敗しました");
+                    console.log("jqXHR          : " + jqXHR.status); // HTTPステータスが取得
+                    console.log("textStatus     : " + textStatus);    // タイムアウト、パースエラー
+                    console.log("errorThrown    : " + errorThrown.message); // 例外情報
+                    console.log("URL            : " + url);
     })
     .always(function() {
 
