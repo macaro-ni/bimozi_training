@@ -12,7 +12,7 @@ import "channels"
 import "jquery";
 import "popper.js";
 import "bootstrap";
-import "../stylesheets/application" 
+import "../stylesheets/application"
 //FontAwesome導入時に追加
 import '@fortawesome/fontawesome-free/js/all'
 

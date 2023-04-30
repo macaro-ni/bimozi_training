@@ -136,6 +136,8 @@
 
     // テキストを取得して、canvasに描画する
     const text = document.getElementById("sample-text").innerText;
+    var startMsec = new Date();
+    while (new Date() - startMsec < text.length * 100);
     const textObject = new fabric.Text(text, {
       left: 50,
       top: 20,
@@ -144,9 +146,6 @@
       fontSize: 60,
     });
     canvas.add(textObject);
-
-
-
 
 // ダウンロード
 document.getElementById("downloadPng").addEventListener("click", function () {
