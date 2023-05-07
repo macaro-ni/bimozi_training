@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :practice_records,dependent: :destroy
   has_many :favorites,dependent: :destroy
+  has_many :letters,dependent: :destroy
   
   #ゲストログイン機能のため追加
   def self.guest
