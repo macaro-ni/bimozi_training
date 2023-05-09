@@ -63,10 +63,11 @@
         <!--<button onclick="canvas.clear().renderAll()", class: "btn btn-sm">全て削除</button>-->
 
         　<!--「data: {"turbolinks" => false} 」を入れることで背景は消えないようになった-->
-        <%= link_to "一括削除" ,new_sample_practice_path(@letter.id), data: {"turbolinks" => false}, class: "btn" %>
+
     </div>
 
     <div>
+        <%= link_to "一括削除" ,new_sample_practice_path(@letter.id), data: {"turbolinks" => false}, class: "btn" %>
         <% if current_user.email == 'guest@example.com' %>
           <p>[会員登録すると練習の記録ができます。]</p>
         <% else %>
@@ -136,8 +137,9 @@
 
     // テキストを取得して、canvasに描画する
     const text = document.getElementById("sample-text").innerText;
-    var startMsec = new Date();
-    while (new Date() - startMsec < text.length * 100);
+    // 時間伸ばしてフォント読み込む作戦(以下２行)失敗。リロードで対策することにした。
+    // var startMsec = new Date();
+    // while (new Date() - startMsec < text.length * 100);
     const textObject = new fabric.Text(text, {
       left: 50,
       top: 20,
@@ -146,6 +148,16 @@
       fontSize: 60,
     });
     canvas.add(textObject);
+
+
+// // フォントを完全に読み込むために自動でリロード
+    window.onpageshow = function(event) {
+    	if (event.persisted) {
+    		 window.location.reload();
+    	}
+    };
+
+
 
 // ダウンロード
 document.getElementById("downloadPng").addEventListener("click", function () {

@@ -23,15 +23,15 @@ Genre.seed do |s|
   s.name='年賀状'
 end
 
-Genre.seed do |s|
-  s.id=6
-  s.name='お祝い'
-end
+# Genre.seed do |s|
+#   s.id=6
+#   s.name='お祝い'
+# end
 
-Genre.seed do |s|
-  s.id=7
-  s.name='お悔やみ'
-end
+# Genre.seed do |s|
+#   s.id=7
+#   s.name='お悔やみ'
+# end
 
 Genre.seed do |s|
   s.id=8

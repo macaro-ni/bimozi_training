@@ -3,7 +3,7 @@ Letter.seed(
   {
     id: 18,
     genre_id: 4,
-    name: '北海道 青森県　秋田県　岩手県',
+    name: '北海道　青森県　秋田県　岩手県',
     user_id: 0
   },
 {
