@@ -18,8 +18,8 @@ class Admin::LettersController < ApplicationController
   end
 
   def create
-    @letter=Letter.new(@letter_params)
-    @letter.user_id = 0
+    @letter=Letter.new(letter_params)
+    @letter.user_id = current_admin.id
     if @letter.save
       redirect_to admin_letter_path(@letter.genre_id)
     else
