@@ -12,45 +12,16 @@
   <div class="border-top border-bottom col-md-4">
 
 
-        <span id="sample-text" >
-
-        <% lines = @letter.name.split("\n") %>
-        <!--改行している場合-->
-        <% if lines.length > 1 %>
-          <% lines.each do |line| %>
-            <!--lineの長さが15文字以上か？-->
-            <% if line.length >= 15 %>
-              <% num = 0 %>
-              <% while num <= line.length do %>
-                <% letter15 = line[num, 15] %>
-                <%= letter15 %>
-                <br>
-                <% num += 15 %>
-              <% end %>
-            <!--15文字未満の場合 -->
-            <% else %>
-              <%= line %>
-              <br>
+      <span id="sample-text" >
+        <% sentences = @letter.name.split("\n") %>
+        <% sentences.each do |sentence| %>
+            <% lines = sentence.scan(/.{1,#{15}}/)%>
+            <% lines.each do |line| %>
+              <%= line %><br>
             <% end %>
-          <% end %>
-        <!--改行せずに15文字未満の文字列を入力した場合-->
-        <% else %>
-          <% if @letter.name.length >= 15 %>
-            <% num = 0 %>
-            <% while num <= @letter.name.length do %>
-              <% letter15 = @letter.name[num, 15] %>
-              <%= letter15 %>
-              <br>
-              <% num += 15 %>
-            <% end %>
-          <% else %>
-            <%= @letter.name %>
-            <br>
-          <% end %>
         <% end %>
-
-
       </span>
+
   </div>
 
 </div>

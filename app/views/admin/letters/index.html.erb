@@ -1,5 +1,17 @@
 <h1>文字ジャンル一覧(管理者画面)</h1>
 
+<!--バリデーションで文字の登録ができなかった時のエラー表示-->
+<% if @letter.errors.any? %>
+  <%= @letter.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @letter.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+
 <% @genres.each do |genre| %>
   <li><%= link_to genre.name, admin_letter_path(genre.id) %></li>
 <% end %>
@@ -11,9 +23,9 @@
 
 <H3>お手本文字登録</H3>
 
-<%= form_with model: @letter ,url: admin_letters_path do |f| %>
+<%= form_with model: @letter ,url:admin_letters_path do |f| %>
   <%= f.label :name, "文字名" %>
-  <%= f.text_field :name %>
+  <%= f.text_area :name %>
 
   <!--genreはセレクトボックスで-->
   <%= f.label :genre, "ジャンル名" %>

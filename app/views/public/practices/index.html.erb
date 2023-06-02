@@ -30,7 +30,7 @@
 
           <tr>
             <td class="p-0"><%= practice_record.created_at.strftime('%Y/%m/%d') %>
-            <%= link_to "削除" ,practice_path(practice_record.id), method: :delete, class: "btn btn-sm border-secondary" %></td>
+            <%= link_to "削除" ,practice_path(practice_record.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm border-secondary" %></td>
           </tr>
         </table>
         <% end %>
