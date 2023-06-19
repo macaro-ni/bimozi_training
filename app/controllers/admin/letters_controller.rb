@@ -43,9 +43,8 @@ class Admin::LettersController < ApplicationController
 
 
   private
-
-  def letter_params
-    params.require(:letter).permit(:name,:genre_id)
-  end
+    def letter_params
+      params.require(:letter).permit(:name,:genre_id)
+    end
 
 end

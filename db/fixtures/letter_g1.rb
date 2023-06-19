@@ -5,31 +5,31 @@ Letter.seed(
   {
     id:1,
     genre_id: 1,
-    name: 'あいうえお　かきくけこ',
+    name: "あいうえお　かきくけこ",
     user_id: 0
   },
   {
     id: 2,
     genre_id: 1,
-    name: 'さしすせそ　たちつてと',
+    name: "さしすせそ　たちつてと",
     user_id: 0
   },
   {
     id: 3,
     genre_id: 1,
-    name: 'なにぬねの　はひふへほ',
+    name: "なにぬねの　はひふへほ",
     user_id: 0
   },
   {
     id: 4,
     genre_id: 1,
-    name: 'まみむめも　やゆよ',
+    name: "まみむめも　やゆよ",
     user_id: 0
   },
   {
     id: 5,
     genre_id: 1,
-    name: 'らりるれろ　わをん',
+    name: "らりるれろ　わをん",
     user_id: 0
   },
   )

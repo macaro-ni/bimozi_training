@@ -143,7 +143,7 @@ document.getElementById("downloadPng").addEventListener("click", function () {
       // リクエストを送信するURLを指定(開発)
       // url: "https://086192e85b094c90b02448a4e1eca7d4.vfs.cloud9.ap-northeast-1.amazonaws.com/letters/<　%= @letter.id %>/post_image",
       // リクエストを送信するURLを指定(本番)
-      url: "http://43.207.226.239/letters/<%= @letter.id %>/post_image",
+      url: "<%= root_url %>letters/<%= @letter.id %>/post_image",
       type: "POST",  // HTTPメソッドを指定（デフォルトはGET）
       data: {  // 送信するデータをハッシュ形式で指定
         image: {body: base64}
@@ -154,7 +154,7 @@ document.getElementById("downloadPng").addEventListener("click", function () {
       // URLを指定(開発)
       // window.location.href = "https://086192e85b094c90b02448a4e1eca7d4.vfs.cloud9.ap-northeast-1.amazonaws.com/practices";
       // URLを指定(本番)
-      window.location.href = "http://43.207.226.239/practices";
+      window.location.href = "<%= root_url %>practices";
        // textareaを空にする
     })
     .fail(function(jqXHR, textStatus, errorThrown) {

@@ -8,7 +8,7 @@ class Public::PracticesController < ApplicationController
   def index
     @practice_records = current_user.practice_records.page(params[:page])
     if params[:name].present?
-      @practice_records = current_user.practice_records.left_joins(:letter).where('letters.name LIKE ?', "%#{params[:name]}%").page(params[:page])
+      @practice_records = current_user.practice_records.left_joins(:letter).where("letters.name LIKE ?", "%#{params[:name]}%").page(params[:page])
     end
   end
 
