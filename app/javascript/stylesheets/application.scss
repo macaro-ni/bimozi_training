@@ -44,6 +44,23 @@ background-color: #f5f5f5;
 
 }
 
+// ジャンル一覧画面で正方形のボタン
+.btn-genre {
+  width: 100px;
+  height: 100px;
+  margin : 5px ;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover,.btn:focus {
+  color: white !important;
+  background-color: #C0C0C0;
+  border-color: #C0C0C0;
+}
+
 .top-img{
   height: 80%;
   width: auto;

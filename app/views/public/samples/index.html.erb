@@ -6,13 +6,10 @@
           <p>練習したい文字のジャンルを選んでください。</p>
     </div>
 
-        <div class= "col-md-12">
-
-          <ul class="list-unstyled">
+        <div class="d-flex", style="flex-wrap: wrap;">
           <% @genres.each do |genre| %>
-            <li ><%= link_to genre.name, sample_path(genre.id), class: "border-bottom", style: "color: gray;" %></li>
+            <%= link_to genre.name, sample_path(genre.id), class: "btn btn-genre", style: "color: gray;" %>
           <% end %>
-          </ul>
         </div>
 
         <div class="form-label">
