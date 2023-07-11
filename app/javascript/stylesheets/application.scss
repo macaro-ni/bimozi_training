@@ -61,17 +61,18 @@ background-color: #f5f5f5;
   border-color: #C0C0C0;
 }
 
-.top-img{
-  height: 80%;
-  width: auto;
-  background-image: url("../images/top_image.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.84;
-  position: relative;
-  height: 500px;
-  width: 500px;
-}
+// 背景ではなくimage_tagにした。（支障なかったらここは削除する）
+// .top-img{
+//   height: 80%;
+//   width: auto;
+//   background-image: url("../images/top_image.png");
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   opacity: 0.84;
+//   position: relative;
+//   height: 500px;
+//   width: 500px;
+// }
 .image{
   // height: 500px;
   position: relative;

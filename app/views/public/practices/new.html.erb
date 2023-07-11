@@ -149,9 +149,6 @@ document.getElementById("downloadPng").addEventListener("click", function () {
       dataType: "json"  // レスポンスデータをjson形式と指定する
     })
     .done(function(data) {
-      // URLを指定(開発)
-      // window.location.href = "https://086192e85b094c90b02448a4e1eca7d4.vfs.cloud9.ap-northeast-1.amazonaws.com/practices";
-      // URLを指定(本番)
       window.location.href = "<%= root_url %>practices";
        // textareaを空にする
     })
