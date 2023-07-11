@@ -6,10 +6,10 @@
         <!--検索フォーム-->
         <%= form_with url:practices_path , method: :get, local: true, class: "mt-2 mx-3 p-1 search-form" do |f| %>
           <%= f.text_field :name, placeholder: "文字名を入力"  %>
-          <%= f.submit "検索" %>
+          <%= f.submit "検索", class: "btn" %>
         <% end %>
 
-        <%= link_to "絞り込み解除",practices_path, class: "btn btn-sm border-secondary" %>
+        <%= link_to "絞り込み解除",practices_path, class: "btn btn-sm border-secondary", class: "btn" %>
       </div>
   </div>
 

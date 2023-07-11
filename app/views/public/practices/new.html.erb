@@ -32,12 +32,10 @@
         <!--<input type="radio" id="erase" name="mode">-->
         <!--<label for="draw">消しゴム</label>-->
         <!--<button onclick="canvas.clear().renderAll()", class: "btn btn-sm">全て削除</button>-->
-
-        　<!--「data: {"turbolinks" => false} 」を入れることで背景は消えないようになった-->
-
     </div>
 
     <div>
+        <!--「data: {"turbolinks" => false} 」を入れることで背景は消えないようになった-->
         <%= link_to "一括削除" ,new_sample_practice_path(@letter.id), data: {"turbolinks" => false}, class: "btn" %>
         <% if current_user.email == 'guest@example.com' %>
           <p>[会員登録すると練習の記録ができます。]</p>
