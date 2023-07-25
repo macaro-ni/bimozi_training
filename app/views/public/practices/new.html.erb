@@ -32,17 +32,23 @@
         <!--<input type="radio" id="erase" name="mode">-->
         <!--<label for="draw">消しゴム</label>-->
         <!--<button onclick="canvas.clear().renderAll()", class: "btn btn-sm">全て削除</button>-->
-        <button id="undo" class="btn btn-sm">ひとつ戻る</button>
-        <button id="redo" class="btn btn-sm">ひとつ進む</button><br>
     </div>
 
     <div>
+        <button id="undo" class="btn btn-sm">
+          <i class="fa-solid fa-arrow-rotate-left" style="color: #4f4f4f;"></i>
+        </button>
+        
+        <button id="redo" class="btn btn-sm">
+          <i class="fa-solid fa-arrow-rotate-right" style="color: #4f4f4f;"></i>
+        </button>
+        
         <!--「data: {"turbolinks" => false} 」を入れることで背景は消えないようになった-->
-        <%= link_to "一括削除" ,new_sample_practice_path(@letter.id), data: {"turbolinks" => false}, class: "btn" %>
+        <%= link_to "一括削除" ,new_sample_practice_path(@letter.id), data: {"turbolinks" => false}, class: "btn btn-sm" %>
         <% if current_user.email == 'guest@example.com' %>
           <p>[会員登録すると練習の記録ができます。]</p>
         <% else %>
-          <input type="button" id="downloadPng" value="保存" class="btn btn-sm" >
+          <input type="button" id="downloadPng" value="保存" class="btn" >
         <% end %>
     </div>
     <br>
