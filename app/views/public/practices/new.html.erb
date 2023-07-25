@@ -32,6 +32,8 @@
         <!--<input type="radio" id="erase" name="mode">-->
         <!--<label for="draw">消しゴム</label>-->
         <!--<button onclick="canvas.clear().renderAll()", class: "btn btn-sm">全て削除</button>-->
+        <button id="undo" class="btn btn-sm">ひとつ戻る</button>
+        <button id="redo" class="btn btn-sm">ひとつ進む</button><br>
     </div>
 
     <div>
@@ -82,7 +84,7 @@
     //   canvas.isDrawingMode = true;
     // });
 
-    // canvas背景に枠線画像追加（ここから）
+ // canvas背景に枠線画像追加（ここから）
         // 画像を読み込むためのImageオブジェクトを作成
     const backgroundImage = new Image();
         // Fabric.jsのloadFromJSONメソッドを呼び出して、キャンバス上に背景画像を設定
@@ -99,7 +101,7 @@
     };
         // 画像を読み込み
     backgroundImage.src = "<%= asset_path('sampleflame.jpg')%>";//"https://drive.google.com/uc?export=view&id=1WWSMI2uAnp8jZgGb4J-ZDDTabsUYHZNI";
-    // canvas背景に枠線画像追加（ここまで）
+ // canvas背景に枠線画像追加（ここまで）
 
 
 
@@ -126,6 +128,49 @@
     	}
     };
 
+// UNDO機能（ここから）
+
+  let lockHistory = false; //Undo/Redo時の描画イベントに反応させないためのフラグ
+  const undo_history = [];
+  const redo_history = [];
+
+  // 文字追加時
+  canvas.on("object:added", function () {
+    if (lockHistory) return;
+    console.log("object:added");
+    undo_history.push(JSON.stringify(canvas));
+    redo_history.length = 0;
+    console.log(undo_history.length);
+  });
+
+  function undo() {
+    if (undo_history.length > 0) {　//undo_historyに履歴がある場合(のみアンドゥが可能)
+      lockHistory = true;　//undo内の動作は履歴に残さない
+      if (undo_history.length > 1) redo_history.push(undo_history.pop()); //最初の白紙はundoに入れない
+      const content = undo_history[undo_history.length - 1];
+      canvas.loadFromJSON(content, function () {
+        canvas.renderAll();
+        lockHistory = false; //履歴の変更を許可に戻しておく
+      });
+    }
+  }
+
+  function redo() {
+    if (redo_history.length > 0) {
+      lockHistory = true;
+      const content = redo_history.pop();
+      undo_history.push(content);
+      canvas.loadFromJSON(content, function () {
+        canvas.renderAll();
+        lockHistory = false;
+      });
+    }
+  }
+
+  document.getElementById("undo").addEventListener("click", undo);
+  document.getElementById("redo").addEventListener("click", redo);
+
+// UNDO機能（ここまで）
 
 
 // ダウンロード
