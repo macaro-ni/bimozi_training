@@ -7,8 +7,14 @@
     </div>
 
         <div class="d-flex", style="flex-wrap: wrap;">
+          <!--アイコンつきボタン-->
           <% @genres.each do |genre| %>
-            <%= link_to genre.name, sample_path(genre.id), class: "btn btn-genre", style: "color: gray;" %>
+            <%= link_to sample_path(genre.id) , class: "btn btn-genre flex-column", style: "color: gray;" do %>
+              <div class="border border-white px-1 py-1">
+                <%= image_tag "genre#{genre.id}.PNG", :size => '70x70' %>
+                <%= genre.name %>
+              </div>
+            <% end %>
           <% end %>
         </div>
 

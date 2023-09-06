@@ -23,15 +23,15 @@ Genre.seed do |s|
   s.name="年賀状"
 end
 
-# Genre.seed do |s|
-#   s.id=6
-#   s.name='お祝い'
-# end
+Genre.seed do |s|
+  s.id=6
+  s.name='名字'
+end
 
-# Genre.seed do |s|
-#   s.id=7
-#   s.name='お悔やみ'
-# end
+Genre.seed do |s|
+  s.id=7
+  s.name='お祝い'
+end
 
 Genre.seed do |s|
   s.id=8
@@ -41,7 +41,7 @@ end
 # 他に追加したくなった時のために、id飛ばしておいた（これは最後の行にしたい）
 Genre.seed do |s|
   s.id=20
-  s.name="フォーム入力文字"
+  s.name="追加文字"
 end
 
 

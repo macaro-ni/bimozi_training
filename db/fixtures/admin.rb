@@ -1,7 +1,7 @@
 
   Admin.seed(
       id: 1,
-      email: "admin@test",
-      password: "admintest"
+      email: ENV['ADMIN_EMAIL'],
+      password: ENV['ADMIN_PASSWOR']
       )
       
