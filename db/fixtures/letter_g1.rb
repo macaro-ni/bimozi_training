@@ -6,30 +6,30 @@ Letter.seed(
     id:1,
     genre_id: 1,
     name: "あいうえお　かきくけこ",
-    user_id: 0
+    user_id: 1
   },
   {
     id: 2,
     genre_id: 1,
     name: "さしすせそ　たちつてと",
-    user_id: 0
+    user_id: 1
   },
   {
     id: 3,
     genre_id: 1,
     name: "なにぬねの　はひふへほ",
-    user_id: 0
+    user_id: 1
   },
   {
     id: 4,
     genre_id: 1,
     name: "まみむめも　やゆよ",
-    user_id: 0
+    user_id: 1
   },
   {
     id: 5,
     genre_id: 1,
     name: "らりるれろ　わをん",
-    user_id: 0
+    user_id: 1
   },
   )

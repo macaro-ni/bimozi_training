@@ -8,24 +8,10 @@
       <% if current_user.email == 'guest@example.com' %>
         <p>[会員登録すると文字のお気に入り登録ができます。]</p>
       <% end %>
-            <!--genre5（名前住所練習）の場合(エラーが出たので一旦コメントアウト)-->
-            <!--  < % if @genre.id == 5 %>-->
-            <!--    < % form_with @letter do |f| %>-->
-            <!--    <ul class="list-unstyled">-->
-            <!--      <li>-->
-            <!--        < %= f.hidden_field :name, :value =>@user.first_name + " " + @user.last_name %>-->
-            <!--        < %= f.hidden_field :genre_id, :value =>5 %>-->
-            <!--        < %= link_to new_sample_practice_path(letter.id), data: {"turbolinks"=>false}, class: "border-bottom", style: "color: gray;" do %>-->
-            <!--          < %= @user.first_name + " " + @user.last_name %>-->
-            <!--        < % end %></li>-->
-            <!--      <li>< %= @user.address %></li>-->
-            <!--    </ul>-->
-            <!--    < % end %>-->
-            <!--  < % end %>-->
             <% @letters.each do |letter| %>
             <ul>
               <!--[if]フォーム入力文字(id=20)以外のジャンルの場合、admin入力文字を表示-->
-              <% if letter.genre_id != 20 && letter.user_id == 0 %>
+              <% if letter.genre_id != 20 && letter.user_id == 1 %>
                  <li class="list-unstyled">
                    <%= link_to new_sample_practice_path(letter.id), data: {"turbolinks"=>false}, class: "border-bottom", style: "color: gray;" do %>
                          <%= letter.name %>
@@ -47,7 +33,7 @@
                           <% end %>
                     <% end %>
                   </li>
-              <!--[els]フォーム入力文字（id=20）の場合、またはユーザー入力文字（letter.user_id=0でない）の場合、[if]ゲストユーザー以外には自分が入力した文字だけ表示-->
+              <!--[els]フォーム入力文字（id=20）の場合、またはユーザー入力文字（letter.user_id=1でない）の場合、[if]ゲストユーザー以外には自分が入力した文字だけ表示-->
               <% elsif current_user.email != 'guest@example.com' && letter.user_id == current_user.id %>
                   <!--liの中は上と同じ-->
                   <li class="list-unstyled">
