@@ -27,7 +27,5 @@
   <%= f.label :genre, "ジャンル名" %>
   <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id,:name) %>
   
-  <%= f.hidden_field :user_id, :value =>1 %>
-  
   <%= f.submit "登録" %>
 <% end %>
