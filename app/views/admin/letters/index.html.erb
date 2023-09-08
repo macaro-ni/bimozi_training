@@ -16,20 +16,18 @@
   <li><%= link_to genre.name, admin_letter_path(genre.id) %></li>
 <% end %>
 
-<!--<li>< %= link_to "1文字ずつ練習", sample_path(@genre.id) %></li>-->
-<!--<li>< %= link_to "都道府県", samples_path %></li>-->
-<!--<li>< %= link_to "冠婚葬祭", samples_path %></li>-->
-<!--<li>< %= link_to "例文集", samples_path %></li>-->
 
 <H3>お手本文字登録</H3>
 
 <%= form_with model: @letter ,url:admin_letters_path do |f| %>
   <%= f.label :name, "文字名" %>
   <%= f.text_area :name %>
-
+  
   <!--genreはセレクトボックスで-->
   <%= f.label :genre, "ジャンル名" %>
   <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id,:name) %>
-
+  
+  <%= f.hidden_field :user_id, :value =>1 %>
+  
   <%= f.submit "登録" %>
 <% end %>
